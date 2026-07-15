@@ -18,7 +18,10 @@ Exactly **485 transactions, all "Bill Payment (Check)" against A/P, ZERO money e
 "they should have been matching payments to bills but they weren't, they are now. a payment would come in and they wouldn't match it" — i.e., the real Zions bank-feed withdrawal was not matched to the bill; instead a manual Bill Payment drawn on the fake "ACH" bank was recorded to clear A/P, leaving the feed item to be booked separately. The process was fixed at year-end 2025 (hence the freeze).
 
 ## Quantifying app impact
-Vendor payments to the same big-three vendors appear via TWO recording paths in the polluted window (verified Oct 2025: Canon as BillPayment/Check AND as Purchase/Cash in the same month). `/api/spend-by-funding?start&end` (built 2026-07-15) breaks inventory spend down by funding account — use it to size ACH-funded vs real-bank-funded spend per period before deciding any correction.
+Vendor payments to the same big-three vendors appear via TWO recording paths in the polluted window (verified Oct 2025: Canon as BillPayment/Check AND as Purchase/Cash in the same month). `/api/spend-by-funding?start&end` (built 2026-07-15) breaks inventory spend down by funding account. Measured inventory-attributed ACH-funded spend: 2024-H2 $4.70M · 2025-H1 $4.49M · 2025-H2 $5.21M · 2026-H1 $0.
+
+## The mitigation in force (D26 — since 2026-07-15)
+`QBO_EXCLUDED_FUNDING_ACCOUNTS=ACH` is set in Railway: the spend engine skips ACH-funded payments everywhere (statement, dashboard, drill-downs, tax, direct costs), statements show "Excluded $X…", and cache keys carry an `xf:` prefix so polluted/corrected results never mix. `/api/spend-by-funding` stays unfiltered as the diagnostic. **When the bookkeeper zeroes the ACH account, unset the env var and redeploy — done.** H1 2026 numbers are identical with or without the exclusion (verified).
 
 ## Why this poisons mid-2025 reporting
 The app treats every QBO Bank-type account as "bank": income = bank-landed deposits, and bank change = Bank-type balance diff. Purchases (Bucket 1/2) count all BillPayments/Purchases regardless of funding account. In H2 2025 ~$4.7M of net activity ran through ACH that never showed in a real bank, so any range crossing H2 2025 shows a large "cash loss" that no real account experienced. TTM Jun→Jun: booked NOI ≈ −$4.0M while real banks moved ≈ −$137k and physical inventory grew ~$866k.
