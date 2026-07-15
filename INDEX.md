@@ -36,6 +36,7 @@
 - [goals/02-pnl-drilldown.md](goals/02-pnl-drilldown.md) — P&L drill-down with self-verifying details
 - [goals/03-reconciliation-checks.md](goals/03-reconciliation-checks.md) — automated tie-out checks (built)
 - [goals/04-dashboard-consistency.md](goals/04-dashboard-consistency.md) — one set of formulas everywhere
+- [goals/05-historical-data-2020.md](goals/05-historical-data-2020.md) — full history back to 2020
 
 ## Roles
 - [roles/architect.md](roles/architect.md) · [roles/worker.md](roles/worker.md) · [roles/tester.md](roles/tester.md)
