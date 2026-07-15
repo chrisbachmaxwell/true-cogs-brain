@@ -15,6 +15,7 @@
 - [concepts/sales-tax-contra-revenue.md](concepts/sales-tax-contra-revenue.md) — tax-inclusive POS income, tax deducted exactly once
 - [concepts/intercompany-boise-credit-memos.md](concepts/intercompany-boise-credit-memos.md) — the SLC↔Boise settlement structure
 - [concepts/ledger-hygiene-items.md](concepts/ledger-hygiene-items.md) — known-bad ledger balances for the bookkeeper
+- [concepts/ach-clearing-account-h2-2025.md](concepts/ach-clearing-account-h2-2025.md) — why mid-2025 ranges show phantom losses
 - [concepts/qbo-api-invisible-transactions.md](concepts/qbo-api-invisible-transactions.md) — payroll & tax-center are invisible to the API
 - [concepts/h1-2026-verified-numbers.md](concepts/h1-2026-verified-numbers.md) — the validated H1 statement, line by line
 
