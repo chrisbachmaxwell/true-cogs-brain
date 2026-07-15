@@ -52,6 +52,10 @@ Every entry: claim → reasoning → source. All dates 2026-07 (the project was 
 
 **D23 — Direct-method bank reconciliation as its own report.** Chris wanted proof: "I guess I'm trying to find out why all the net profit didn't go straight to the bank account… we should be able to reconcile that number." Built `/api/bank-flow`: transaction-by-transaction money in − categorized money out; the remainder is payroll/tax-center (API-invisible), shown explicitly rather than hidden. Source: conversation; commit `4231978`.
 
+**D24 — Password-based user management replaces email magic-link auth.** Chris (2026-07-15): "instead of doing a login with email, lets use a user management with passwords." Removes the Resend/email dependency that had blocked goal 01 (the magic-link gate was never activated). Design: scrypt-hashed passwords, env-seeded first admin, admin UI for add/reset/remove users; HMAC session cookies retained from the old flow. Source: conversation 2026-07-15; goal 01 rewritten.
+
+**D25 — P&L drill-down with self-verifying detail views; reconciliation checks page proposed.** Chris (2026-07-15): clicking any statement amount must show the transactions/accounts composing it ("This drill down is important to me so I can see where our numbers are coming from"), including a two-level expenses breakdown. Agreed enhancements: every detail view carries a sum-check line proving it ties to the statement number; transaction rows deep-link to the source document in QuickBooks; CSV export per table. A "Checks" page automating the H1 tie-out invariants was proposed and specced (goal 03, awaiting Chris's go). Source: conversation 2026-07-15; goals 02 and 03.
+
 ## Chris's preferences and constraints (observed)
 - **Non-technical.** Give exact commands and expected output; never assume CLI fluency. He interacts via the web UI and screenshots.
 - Wants **one number he can trust**, reconciled to the bank — distrusts figures he can't tie out, and will personally audit them (he caught several methodology errors).

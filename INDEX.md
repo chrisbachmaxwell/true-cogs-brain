@@ -32,7 +32,9 @@
 
 ## Goals
 - [goals/README.md](goals/README.md) — the goal-loop protocol
-- [goals/01-auth-gate.md](goals/01-auth-gate.md) — current goal: sign-in gate live
+- [goals/01-auth-gate.md](goals/01-auth-gate.md) — current goal: password sign-in gate live
+- [goals/02-pnl-drilldown.md](goals/02-pnl-drilldown.md) — P&L drill-down with self-verifying details
+- [goals/03-reconciliation-checks.md](goals/03-reconciliation-checks.md) — proposed: automated tie-out checks
 
 ## Roles
 - [roles/architect.md](roles/architect.md) · [roles/worker.md](roles/worker.md) · [roles/tester.md](roles/tester.md)

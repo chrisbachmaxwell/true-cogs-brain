@@ -1,30 +1,41 @@
-# Goal 01 — Sign-in gate live
+# Goal 01 — Sign-in gate live (username + password)
 
-**Status:** BLOCKED (waiting on Chris) — all code exists (`src/auth.ts`, decision D17); it activates when `RESEND_API_KEY` is set.
+**Status:** ACTIVE
 **Why first:** the dashboard shows Pictureline's full financials and is currently open to anyone with the URL.
 
+**Direction change (2026-07-15, Chris):** password-based user management REPLACES the email magic-link approach (decision D24). No Resend/email dependency — the old blocker is gone. The magic-link code in `src/auth.ts` is superseded; keep the HMAC session-cookie machinery (it's sound), replace the login flow.
+
+## Design constraints
+- Passwords hashed with `crypto.scrypt` (Node built-in — no new dependencies), per-user random salt, timing-safe verify.
+- `users` table: email, password hash+salt, is_admin, created_at. Sessions stay HMAC-signed 30-day cookies with a per-request user recheck.
+- Bootstrap without email: if the users table is empty, `ADMIN_EMAIL` + `ADMIN_INITIAL_PASSWORD` env vars seed the first admin at boot (and the app forces a password change on first login).
+- Admin-only user management page: add user, reset a user's password, remove user, and self-serve "change my password".
+- Rate-limit login attempts (same discipline as the old flow); generic error on bad credentials (no enumeration).
+- Auth enforced whenever the users table is non-empty (replaces the `RESEND_API_KEY` switch).
+- `/connect`, `/callback`, `/health`, `/theme.css`, `/app.js`, `/login` stay open — QBO re-auth must never be locked out. No `express.static` (see concepts/security-notes.md).
+
 ## Done when
-- [ ] `curl -s -o /dev/null -w "%{http_code}" "https://web-production-8c8c0.up.railway.app/api/pnl-statement?start=2026-01-01&end=2026-06-30"` returns **401** (not 200) with no session cookie.
-- [ ] Loading `https://web-production-8c8c0.up.railway.app/` in a fresh browser redirects to `/login`.
-- [ ] Requesting a link on `/login` for `chrism@pictureline.com` delivers an email whose link signs in successfully (30-day session).
-- [ ] Requesting a link for an email NOT on the allowlist shows the same neutral "check your inbox" message (no enumeration) and no session is created.
-- [ ] A used magic link, reused, does NOT sign in (single-use).
-- [ ] `/connect`, `/callback`, and `/health` still work without sign-in (QBO re-auth must never be locked out).
-- [ ] Reports still load normally after sign-in (spot-check /pnl for H1 2026 → NOI $713,506.82).
+- [ ] With a seeded admin, `curl -s -o /dev/null -w "%{http_code}" "https://web-production-8c8c0.up.railway.app/api/pnl-statement?start=2026-01-01&end=2026-06-30"` returns **401** with no session cookie.
+- [ ] Loading `/` in a fresh browser redirects to `/login`, which asks for email + password.
+- [ ] Signing in as the admin works and forces a password change on first login; reports then load normally (spot-check /pnl H1 2026 → NOI $713,506.82).
+- [ ] Wrong password shows a generic error, and repeated failures are rate-limited.
+- [ ] Admin can create a second user from the UI; that user can sign in; admin can reset their password and remove them.
+- [ ] A removed user's existing session cookie stops working on the next request.
+- [ ] `/connect`, `/callback`, `/health` work without sign-in.
+- [ ] `npm run build && npm test` passes, including new unit tests for hashing/verification and the empty-table bootstrap.
 
 ## Waiting on Chris
-1. Create a free account at **https://resend.com** → API Keys → Create API Key (name it `pictureline-tracker`). Copy the key (starts with `re_`).
-2. Verify a sending domain in Resend (Domains → Add Domain → follow the DNS steps), or use Resend's onboarding sender for testing.
-3. In a session with the code repo, paste the key into:
+1. Choose your admin password. Then, in a session with the code repo:
    ```bash
-   railway variables --set RESEND_API_KEY=re_XXXXXXXX --set AUTH_FROM_EMAIL="reports@<your-verified-domain>"
+   railway variables --set ADMIN_EMAIL=chrism@pictureline.com --set ADMIN_INITIAL_PASSWORD='<the password you chose>'
    railway up --detach
    ```
-   Expected: deploy finishes in 3–5 min; afterwards the dashboard URL redirects to a sign-in page.
-4. Tell the next agent "the Resend key is set" — it will verify every box above.
+   Expected: after the 3–5 min deploy, the dashboard URL shows a sign-in page; your email + password gets you in and immediately asks you to set a new password.
+2. That's it — no Resend account needed anymore.
 
 ## Stop clause
-If the login email does not arrive within 5 minutes, or QBO `/connect` becomes unreachable, STOP, set `RESEND_API_KEY` back to unset (`railway variables --set RESEND_API_KEY=`), redeploy, and report to Chris — never leave the app in a state where reports are broken.
+If after deploying the gate the QBO `/connect` flow or the reports become unreachable even when signed in, STOP, roll back by redeploying the previous commit, and report to Chris — never leave the app in a state where he can't see his reports.
 
 ## Iteration log
-- 2026-07-15 (session that built the project): auth code complete and unit-tested; gate verified inactive (API returns 200 unauthenticated). Blocked solely on the Resend key.
+- 2026-07-15 (build session): magic-link auth code complete/tested but never activated (`RESEND_API_KEY` unset).
+- 2026-07-15: Chris redirected the goal to password-based user management; goal rewritten, magic-link approach retired (D24).

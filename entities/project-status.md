@@ -18,13 +18,13 @@
 | Balance-sheet cash-flow view | `src/cashflow.ts`, `/cashflow` page | Done |
 | Monthly result caching (closed months forever, current month 1h TTL, `refresh=1` bypass, in-flight dedupe) | `src/index.ts`, `monthly_cache` table | Done |
 | Report-hub UI, Apple-like theme, day-level date ranges shared across pages, stale-response guard | `public/` | Done, deployed 2026-07-15 |
-| Email magic-link auth (Resend) | `src/auth.ts` | Code done and tested, **NOT ACTIVE** — `RESEND_API_KEY` unset, so the dashboard is open to anyone with the URL. This is the current goal. |
+| Auth | `src/auth.ts` | **NOT ACTIVE** — dashboard open to anyone with the URL. Magic-link code exists but was retired unactivated (D24); goal 01 replaces it with password-based user management. |
 | QBO throttling (150ms gap + backoff), error sanitization, no `express.static` | `src/qbo.ts`, `src/index.ts` | Done |
 
 ## Environment (Railway) — actual values in use
 - `QBO_INVENTORY_ACCOUNTS=11900,11901` · retail income = all Income/Other-Income accounts · sales tax account `21900` · `QBO_DIRECT_COST_ACCOUNTS=51300,50600,50200` (freight, customer repairs, materials)
 - `TOKEN_ENCRYPTION_KEY` lives only in Railway env — never materialize it locally
-- `RESEND_API_KEY` **unset**; auth allowlist defaults to `chrism@pictureline.com`
+- `RESEND_API_KEY` unset and now irrelevant (D24 — password auth planned); allowlist default `chrism@pictureline.com` carries over as the admin email
 
 ## Validated output (H1 2026, 2026-01-01 → 2026-06-30)
 Net revenue **$12,605,769.65**, accounting-basis COGS **$10,594,351.46**, GP **$2,011,418.19** (16.0%), NOI **$713,506.82**. Full breakdown and how each line was tied out: [../concepts/h1-2026-verified-numbers.md](../concepts/h1-2026-verified-numbers.md).
