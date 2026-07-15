@@ -20,6 +20,12 @@ Exactly **485 transactions, all "Bill Payment (Check)" against A/P, ZERO money e
 ## Quantifying app impact
 Vendor payments to the same big-three vendors appear via TWO recording paths in the polluted window (verified Oct 2025: Canon as BillPayment/Check AND as Purchase/Cash in the same month). `/api/spend-by-funding?start&end` (built 2026-07-15) breaks inventory spend down by funding account. Measured inventory-attributed ACH-funded spend: 2024-H2 $4.70M · 2025-H1 $4.49M · 2025-H2 $5.21M · 2026-H1 $0.
 
+## Year-split limitation (found 2026-07-15, investigating Chris's 2023–25 annual NOIs)
+With the exclusion on, annual NOIs read: 2023 $281,943 (16.3% GP — trustworthy, pre-ACH), 2024 $99,062 (13.8% GP — too low), 2025 $1,643,246 (21.75% GP — too high vs clean-2026's ~16%). Twin analysis against the ACH register:
+- **Nikon's** ACH payments have NAMED kept twins (kept/ACH ≈ 1.0 in 2025) — clean duplicates.
+- **Canon/Sony's** twins are the **"Unknown payee"** entries — bank-feed withdrawals entered with no vendor (~$3.3–3.7M per half, ~200 txns each, ≈ $10.5M over the window). Duplication broadly holds, BUT twin totals don't match ACH totals half-by-half (±$1M/half), and that mismatch sloshes profit between 2024 and 2025.
+- **Conclusion: 2024 and 2025 INDIVIDUAL years are not reliable; their SUM is** (2024+2025 NOI ≈ $1.74M, ~17.6% avg GP — sane). No automatic rule can split them correctly; only the bookkeeper cleanup (void ACH payments AND name/match the Unknown-payee feed entries to bills) yields true per-year numbers. Tell the bookkeeper: the "Unknown payee" expenses from Zions are the feed-side twins to match.
+
 ## The mitigation in force (D26 — since 2026-07-15)
 `QBO_EXCLUDED_FUNDING_ACCOUNTS=ACH` is set in Railway: the spend engine skips ACH-funded payments everywhere (statement, dashboard, drill-downs, tax, direct costs), statements show "Excluded $X…", and cache keys carry an `xf:` prefix so polluted/corrected results never mix. `/api/spend-by-funding` stays unfiltered as the diagnostic. **When the bookkeeper zeroes the ACH account, unset the env var and redeploy — done.** H1 2026 numbers are identical with or without the exclusion (verified).
 
