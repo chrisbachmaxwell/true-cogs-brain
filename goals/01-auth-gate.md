@@ -1,7 +1,7 @@
 # Goal 01 — Sign-in gate live (username + password)
 
-**Status:** ACTIVE
-**Why first:** the dashboard shows Pictureline's full financials and is currently open to anyone with the URL.
+**Status:** ACTIVE — gate LIVE and verified locked 2026-07-15; remaining boxes need Chris's first sign-in (forced password change) and the admin-CRUD walkthrough.
+**Why first:** the dashboard shows Pictureline's full financials and was open to anyone with the URL until today.
 
 **Direction change (2026-07-15, Chris):** password-based user management REPLACES the email magic-link approach (decision D24). No Resend/email dependency — the old blocker is gone. The magic-link code in `src/auth.ts` is superseded; keep the HMAC session-cookie machinery (it's sound), replace the login flow.
 
@@ -39,4 +39,5 @@ If after deploying the gate the QBO `/connect` flow or the reports become unreac
 ## Iteration log
 - 2026-07-15 (build session): magic-link auth code complete/tested but never activated (`RESEND_API_KEY` unset).
 - 2026-07-15: Chris redirected the goal to password-based user management; goal rewritten, magic-link approach retired (D24).
-- 2026-07-15 (worker): implemented and deployed — users table, scrypt hashing, login/password/users pages, admin CRUD, forced first-login password change, per-request user recheck, rate limiting; magic-link code removed. Unit tests cover hashing, tampered/expired sessions, malformed hashes. Gate verified INACTIVE live (`/auth/me` → enabled:false) until Chris sets `ADMIN_EMAIL`/`ADMIN_INITIAL_PASSWORD` — see "Waiting on Chris". Tester/architect should verify the Done-when list once the vars are set.
+- 2026-07-15 (worker): implemented and deployed — users table, scrypt hashing, login/password/users pages, admin CRUD, forced first-login password change, per-request user recheck, rate limiting; magic-link code removed. Unit tests cover hashing, tampered/expired sessions, malformed hashes.
+- 2026-07-15 (later): Chris set `ADMIN_EMAIL`/`ADMIN_INITIAL_PASSWORD`, redeployed. Verified live: unauthenticated `/api/pnl-statement` → **401**; `/` → **302 /login**; `/connect` and `/health` open; wrong password → generic 401. The seeded initial password appeared in a chat transcript — mitigated by the forced first-login change; Chris should sign in promptly. Remaining: Chris's first sign-in + password change, second-user add/reset/remove walkthrough, removed-user session death (unit-tested, not yet exercised live).
