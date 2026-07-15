@@ -13,6 +13,7 @@ Source: balance-sheet review with Chris, 2026-07-14. These are BOOKS problems, n
 | "ACH" account | **−$13,062,007.66**, frozen since 2025-12-31 | Bank-typed clearing account, never reconciled; absorbed −$4.73M net outflows in H2 2025 alone, making any range crossing H2 2025 show phantom losses — see [ach-clearing-account-h2-2025.md](ach-clearing-account-h2-2025.md). **Top-priority bookkeeper item.** |
 | "AX Purple" | Typed as **liability**, behaves like a card/clearing account | Wrong account type |
 | Shareholder Distributions `31400` | One **$30,000 deposit** coded here | Possibly miscoded — Chris to verify |
+| Payroll Expenses `66000` (2023–24) | $750k (2023) + $298k (2024) of bank-feed pulls hand-coded as payroll expense | NOT wages: Utah State Tax Commission $312,683 (sales-tax remittances belonging against the liability), IRS $35,606 + 37 unnamed pulls $396,715 (likely payroll-tax/provider debits duplicating 65300 paychecks). Real payroll is 65300 (~$1.7M/yr, steady). If duplication confirmed, 2023 NOI is understated by up to ~$430k. Source: drill-down 2026-07-15. |
 | Credit Memos `11300` | Balance ~$221k vs transaction report ~$1.15M | See [intercompany-boise-credit-memos.md](intercompany-boise-credit-memos.md) |
 
 ## Why the app is (mostly) unaffected
