@@ -38,6 +38,7 @@
 - [goals/03-reconciliation-checks.md](goals/03-reconciliation-checks.md) — automated tie-out checks (built)
 - [goals/04-dashboard-consistency.md](goals/04-dashboard-consistency.md) — one set of formulas everywhere
 - [goals/05-historical-data-2020.md](goals/05-historical-data-2020.md) — full history back to 2020
+- [goals/06-expense-audit.md](goals/06-expense-audit.md) — full expense audit (memo sweep + duplicate scan)
 
 ## Roles
 - [roles/architect.md](roles/architect.md) · [roles/worker.md](roles/worker.md) · [roles/tester.md](roles/tester.md)
