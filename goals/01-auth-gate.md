@@ -39,3 +39,4 @@ If after deploying the gate the QBO `/connect` flow or the reports become unreac
 ## Iteration log
 - 2026-07-15 (build session): magic-link auth code complete/tested but never activated (`RESEND_API_KEY` unset).
 - 2026-07-15: Chris redirected the goal to password-based user management; goal rewritten, magic-link approach retired (D24).
+- 2026-07-15 (worker): implemented and deployed — users table, scrypt hashing, login/password/users pages, admin CRUD, forced first-login password change, per-request user recheck, rate limiting; magic-link code removed. Unit tests cover hashing, tampered/expired sessions, malformed hashes. Gate verified INACTIVE live (`/auth/me` → enabled:false) until Chris sets `ADMIN_EMAIL`/`ADMIN_INITIAL_PASSWORD` — see "Waiting on Chris". Tester/architect should verify the Done-when list once the vars are set.

@@ -1,6 +1,6 @@
 # Goal 03 — Automated reconciliation checks ("Checks" page)
 
-**Status:** PROPOSED — recommended by the agent 2026-07-15, Chris asked "would there be a benefit?"; awaiting his go. Sequenced after goal 02 (reuses its detail endpoints).
+**Status:** ACTIVE — approved by Chris 2026-07-15 ("build all of them").
 
 ## Why
 Every methodology bug found during the build was caught by a hand-run tie-out: the $569k credit-memo discovery came from "income must not exceed bank inflows"; the double-tax bug from "tax deducted exactly once"; the H1 statement was trusted only after money in − money out matched the actual bank change. Encoding those invariants as automatic monthly checks catches that class of problem the day it appears.
@@ -33,3 +33,5 @@ If a check is red for a CLOSED, previously-verified month (H1 2026), do not "fix
 
 ## Iteration log
 - 2026-07-15: proposed and specced; awaiting Chris's approval.
+- 2026-07-15: Chris approved ("build all of them").
+- 2026-07-15 (worker): implemented and deployed — `/api/checks` + /checks page (fifth hub tile): income-vs-inflows, income decomposition, tax-vs-ledger, direct-method tie (15% payroll-share threshold), COGS/NOI arithmetic, drill-down sums, count freshness, offset sanity. Note: checks 7 (count freshness) correctly warns until Chris enters the July count. Awaiting tester pass + architect ruling.

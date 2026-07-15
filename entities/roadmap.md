@@ -8,8 +8,8 @@ The dashboard shows Pictureline's full financials and is open to anyone with the
 ## 2. P&L drill-down → [../goals/02-pnl-drilldown.md](../goals/02-pnl-drilldown.md)
 Click any statement amount to see the transactions/accounts behind it, with self-verifying sum-check lines, QBO deep links, and CSV export. Expenses drill down two levels (total → accounts → transactions). Requested by Chris 2026-07-15 (D25).
 
-## 3. Automated reconciliation checks (PROPOSED) → [../goals/03-reconciliation-checks.md](../goals/03-reconciliation-checks.md)
-A "Checks" page running the H1 tie-out invariants (income ≤ bank inflows, income decomposition exact, tax = ledger, direct method ties, drill-down sums match) green/red for any range. Specced; awaiting Chris's go-ahead.
+## 3. Automated reconciliation checks → [../goals/03-reconciliation-checks.md](../goals/03-reconciliation-checks.md)
+A "Checks" page running the H1 tie-out invariants (income ≤ bank inflows, income decomposition exact, tax = ledger, direct method ties, drill-down sums match) green/red for any range. Approved by Chris 2026-07-15.
 
 ## 4. Rotate the Railway account token **(Chris)**
 Token `f406ac63-…` was pasted into a chat session (source: conversation 2026-07-14). Rotate it at railway.com → Account Settings → Tokens once deploys are stable. See [../concepts/security-notes.md](../concepts/security-notes.md).

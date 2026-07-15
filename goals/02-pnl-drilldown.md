@@ -46,3 +46,4 @@ If a drill-down sum does NOT match its statement line for a closed month, stop a
 
 ## Iteration log
 - 2026-07-15: goal created from Chris's request; enhancements 1–3 proposed and accepted.
+- 2026-07-15 (worker): implemented and deployed — `/api/pnl-detail` (deposits, invoicePayments, salesReceipts, refunds, salesTax, inventory, directCosts, rebates, reimbursements, inventoryChange) and `/api/expense-detail` (per-account rows from the mirror with the API-invisible remainder shown explicitly); every statement amount on /pnl clickable with sum-check line, QBO deep links, CSV export; expense table drills into accounts. `SpendTransaction` now carries `txnId`. Unit tests: detail sums equal computeMonthlyPnl fields; expense sign conventions. Awaiting tester pass + architect ruling on the Done-when list.
