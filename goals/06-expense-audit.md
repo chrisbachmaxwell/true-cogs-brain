@@ -31,4 +31,6 @@ Nothing to start. As fixes land, refresh affected ranges (`Refresh` button) — 
 Findings are RECOMMENDATIONS with evidence — never state a transaction is wrong without showing the memo/duplicate evidence, and anything involving owner/personal items goes to Chris + accountant, not unilateral judgment.
 
 ## Iteration log
-- 2026-07-15: goal created. 66000 checklists (2023–26, $1.06M total misfiled) and ACH checklist (485 payments with bills/credits/twins) delivered. Next: 2022 sweep starting with the deleted Wages account, then per-year memo sweep + duplicate scan.
+- 2026-07-15: goal created. 66000 checklists (2023–26, $1.06M total misfiled) and ACH checklist (485 payments with bills/credits/twins) delivered.
+- 2026-07-15 (later): 2022 sweep DONE — findings: "Rent & Lease" $4.02M = 50 unnamed vendor checks (pre-ACH unmatched-payments era, belongs in COGS); "61200 Casual Labor" $1.67M mostly store build-out (Zwick Construction + architects + wires → Leasehold Improvements CAPEX — raises 2022 NOI dollar-for-dollar); "Wages (deleted)" $4.67M mixed (1.6M flagged memos + 1.54M invisible paychecks); "Taxes (deleted)" $654k remittances. True 2022 opex ≈ $4M, not $11.9M. Report: raw/2026-07-15-expense-audit-2022.html.
+- 2026-07-15 (later): 2023–2026 sweeps run (38/38/37/33 accounts) — per-year audit reports generated the same way.
