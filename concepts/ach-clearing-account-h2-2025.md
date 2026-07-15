@@ -5,8 +5,20 @@ Source: investigation 2026-07-15, triggered by Chris's screenshot (TTM Jun-2025 
 ## The facts
 - QBO has an account named **"ACH"**, typed **Bank**, that is a clearing account for the ACH payment rail. It has never been reconciled.
 - Balances: 2025-06-30 **−$8,329,972.88** → 2025-12-31 **−$13,062,007.66** → 2026-06-30 **−$13,062,007.66**.
-- So it absorbed **−$4,732,034.78 of net booked outflows entirely within H2 2025**, then **froze to the cent on 2025-12-31** — zero movement in all of 2026 (bookkeeping regime evidently changed at year-end).
+- It absorbed **−$4,732,034.78 of net booked outflows entirely within H2 2025**, then **froze to the cent on 2025-12-31** — zero movement in all of 2026 (bookkeeping regime evidently changed at year-end).
 - Over the same TTM window the REAL bank accounts barely moved (Zions checking 8882: −$137k; both savings: flat).
+
+## The full contents (from Chris's QBO export — `raw/2026-07-15-ach-account-transactions.xlsx`)
+Exactly **485 transactions, all "Bill Payment (Check)" against A/P, ZERO money ever in**, spanning 2024-07-15 → 2025-12-29:
+- Canon USA **−$5,982,656.78** (162) · Sony–TD Synnex **−$4,152,526.17** (151) · Nikon **−$2,790,831.99** (152) · Ingram Micro −$89,415 · small others.
+- By half: 2024-H2 −$4,328,903.04 · 2025-H1 −$4,001,069.84 · 2025-H2 −$4,732,034.78.
+- **The polluted window is therefore Jul 2024 → Dec 2025** (not just H2 2025 — the earlier balance-sheet framing understated it; the account was BORN mid-2024).
+
+## Chris's explanation (2026-07-15)
+"they should have been matching payments to bills but they weren't, they are now. a payment would come in and they wouldn't match it" — i.e., the real Zions bank-feed withdrawal was not matched to the bill; instead a manual Bill Payment drawn on the fake "ACH" bank was recorded to clear A/P, leaving the feed item to be booked separately. The process was fixed at year-end 2025 (hence the freeze).
+
+## Quantifying app impact
+Vendor payments to the same big-three vendors appear via TWO recording paths in the polluted window (verified Oct 2025: Canon as BillPayment/Check AND as Purchase/Cash in the same month). `/api/spend-by-funding?start&end` (built 2026-07-15) breaks inventory spend down by funding account — use it to size ACH-funded vs real-bank-funded spend per period before deciding any correction.
 
 ## Why this poisons mid-2025 reporting
 The app treats every QBO Bank-type account as "bank": income = bank-landed deposits, and bank change = Bank-type balance diff. Purchases (Bucket 1/2) count all BillPayments/Purchases regardless of funding account. In H2 2025 ~$4.7M of net activity ran through ACH that never showed in a real bank, so any range crossing H2 2025 shows a large "cash loss" that no real account experienced. TTM Jun→Jun: booked NOI ≈ −$4.0M while real banks moved ≈ −$137k and physical inventory grew ~$866k.
