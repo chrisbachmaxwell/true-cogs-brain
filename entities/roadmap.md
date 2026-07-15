@@ -26,8 +26,8 @@ Two open questions: (a) audit that credit memos issued to Boise match the online
 ## 8. Bookkeeper hand-off of ledger-hygiene items
 Known-bad balances (sales tax payable −$2.6M, Amex sign flipped, frozen A/P 20200 and A/R 11000, "Fraud" $84k, Cash on Hand −$79,568, ACH −$13M, "AX Purple" typed as liability) documented in [../concepts/ledger-hygiene-items.md](../concepts/ledger-hygiene-items.md). Also: verify the $30,000 deposit coded to Shareholder Distributions #31400 — possibly miscoded **(Chris/bookkeeper)**.
 
-## 9. Merge PR #1
-Housekeeping — deploys don't depend on it, but the branch should land on `main` once Chris is happy. PR: https://github.com/chrisbachmaxwell/true-cogs/pull/1
+## 9. ~~Merge PR #1~~ — DONE 2026-07-15
+Merged at Chris's request (merge commit `9db9733`); `main` now carries the full application. Future code work starts fresh branches from `main`.
 
 ## Explicitly out of scope (agreed)
 Multi-company support, per-location P&L splits, writing anything back to QuickBooks (app is read-only by design — decision D2).

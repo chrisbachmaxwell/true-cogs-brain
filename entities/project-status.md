@@ -5,7 +5,7 @@
 ## Deployed and in use
 - Live at `https://web-production-8c8c0.up.railway.app` (Railway project `456f070c-f728-434f-9e8e-56923d776bc6`, Nixpacks, Postgres plugin, healthcheck `/health`).
 - Connected via OAuth to Pictureline's **production** QuickBooks Online company (read-only). Tokens AES-256-GCM-encrypted in Postgres; auto-refresh 5 min before expiry.
-- PR #1 (draft) on `claude/pictureline-inventory-cash-tracker-otub8b` holds all 30 commits; `main` is an empty seed commit. **Not merged** — the app deploys from the working tree via `railway up`, not from git. (verify after: 2026-08)
+- PR #1 **merged to `main`** 2026-07-15 (merge commit `9db9733`, 36 commits) at Chris's request. The app still deploys via `railway up` from a working tree; future code work branches from `main`.
 
 ## What works (all repo-verified)
 | Piece | Where | State |
