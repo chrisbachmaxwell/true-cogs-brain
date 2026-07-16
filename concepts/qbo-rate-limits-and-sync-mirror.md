@@ -13,6 +13,9 @@ Production QBO allows ~500 requests/min; the first full trend load got 429s. Fix
 
 Effect: full-year recompute dropped from ~30 rate-limited minutes to seconds.
 
+## Deletions (fixed 2026-07-15)
+Hard-deleted transactions are INVISIBLE to incremental sync (no LastUpdatedTime event) — deleted rows lingered in the mirror and kept counting. Surfaced during the ACH cleanup: Chris deleted feed expenses, but they still appeared as spend and as cleanup to-dos. Fix: **full syncs now purge mirror rows QBO no longer returns** for the window. During active books-cleanup, run `/api/sync?full=1` (not incremental) before regenerating checklists or trusting spend numbers.
+
 ## Gotchas
 - Pagination: STARTPOSITION/MAXRESULTS; node-quickbooks criteria arrays with field/value/operator.
 - `QBO_MINOR_VERSION=75`.
