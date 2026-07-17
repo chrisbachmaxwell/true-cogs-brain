@@ -22,3 +22,6 @@ Post-cleanup recompute with exclusion still on: 2023 NOI $323,371.85 (real impro
 
 ## Still open (ACH endgame)
 14 unmatched payments (~$259k), 8 quarantined conveyor rows (~$292k), overpayment residue → one 68000 entry, then ACH $0.00. Agent admin to be revoked after. Railway token rotation still owed (token appeared in chat 2026-07-15).
+
+## Addendum (later 2026-07-17): feed-refunds bug + income audit
+Chris compared the deposits drill-down to QBO's 40100 row ($13,278,636 vs $13,214,772) and asked why. Answer became a real methodology fix: bank-feed customer refunds coded to income accounts were never subtracted (see bank-landed-income-rule.md, "Feed-refunds rule"). Fixed, tested (44/44), deployed, verified live (YTD feedRefunds $61,864.17, 31 rows, sum-checked). Full 3-year income-account audit found only two other patterns, both benign (vendor-discount bill lines; 74200 credit-memo mystery — Chris to look). 2024/2025 also carried this leak ($82k/$48k) — corrected automatically by the cache-generation bump on next statement load. Exclusion env var STILL SET at session pause — Chris has the one-line paste; final 2023–2025 refresh + /checks run happens after that.
