@@ -14,6 +14,13 @@ Netting it naively puts 2023 NOI ≈ $1.8M — overshooting Chris's $1M/yr calib
 ## The decisive test (next session)
 Canon, full-year 2023 (pre-ACH, clean): pull every Canon Bill, VendorCredit, BillPayment, and feed Purchase; make every dollar sit in exactly one bucket (kept-inventory, returned, rebated, paid, owed). That determines the correct purchases-received netting rule. Then re-run the 3-year identity; it must close before deploying.
 
+## The conduit principle (Chris articulated it 2026-07-17; this is the design rule)
+Chris: "it is just passing on credits to boise… we might be billed a large number but we get credits that we use so cash never moves." Worked example proving him right: Canon bills $100 (Boise product) with a $30 rebate belonging to Boise → we pay Canon $70 cash, invoice Boise $100, settle $30 by credit memo, Boise pays $70 cash. Cash view: 70 out / 70 in — profit-correct with zero noise. Accrual view is only correct if the $30 appears on BOTH sides. Same wash holds for used gear bought from Boise via credit memo (counts capture the gear; income drops by its value) and online territory fees.
+**Consequences:** (1) INCOME STAYS BANK-LANDED — the $579k credit-memo exclusion is correct, not a gap; do NOT add it as income. (2) The cost side must be equally net: bills-gross purchases (current D31 state) take the conduit's hit without its offset — the purchases line MUST net used vendor credits. Chris's cash principle argues FOR the netting fix, with the exact rule pending the Canon tie-out (pass-through vs kept credits vs returns).
+
+## Resolved side-questions
+- Accountant's 12/31/2025 inventory ($2,560,218): SLC-only books + possible write-downs (Chris, 2026-07-17) — not a discrepancy to chase; his company-wide counts stand for the app.
+
 ## Calibration targets (Chris, 2026-07-17)
 - "1 million each year" NOI for 2024 and 2025; accountant's 2025 = $1,081,232.95.
 - Income side is SETTLED: +$579,213 (2025) of credit-memo-settled Boise revenue is real and currently excluded (bank-landed rule); decide whether to add an explicit "settled by credit memo" income line.
