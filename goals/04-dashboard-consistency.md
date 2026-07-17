@@ -1,5 +1,7 @@
 # Goal 04 — One set of formulas everywhere (dashboard = P&L)
 
+**STATUS: DONE — shipped and verified (see log/2026-07-17-cleanup-run-and-2024-taxes.md and project-status).** Kept for the reasoning record.
+
 **Status:** ACTIVE — reported by Chris 2026-07-15, fix implemented same day; awaiting his confirmation.
 **Origin:** Chris: "the ytd p&L says we've made 571 and the dashboard says we lost money. I want it to be the same formulas."
 

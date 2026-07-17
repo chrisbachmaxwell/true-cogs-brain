@@ -17,7 +17,9 @@
 - [concepts/ledger-hygiene-items.md](concepts/ledger-hygiene-items.md) — known-bad ledger balances for the bookkeeper
 - [concepts/ach-clearing-account-h2-2025.md](concepts/ach-clearing-account-h2-2025.md) — why mid-2025 ranges show phantom losses
 - [concepts/qbo-api-invisible-transactions.md](concepts/qbo-api-invisible-transactions.md) — payroll & tax-center are invisible to the API
-- [concepts/h1-2026-verified-numbers.md](concepts/h1-2026-verified-numbers.md) — the validated H1 statement, line by line
+- [concepts/h1-2026-verified-numbers.md](concepts/h1-2026-verified-numbers.md) — the validated H1 statement, line by line (pre-D33; superseded numbers — see project-status)
+- [concepts/profit-to-bank-proof.md](concepts/profit-to-bank-proof.md) — "if we made it, we can see it": the proof method behind /money, and its correction history
+- [concepts/vendor-rebate-netting-question.md](concepts/vendor-rebate-netting-question.md) — vendor credits, the conduit principle, and THE credit bug (D33)
 
 ## Engineering lessons & dead ends
 - [concepts/qbo-rate-limits-and-sync-mirror.md](concepts/qbo-rate-limits-and-sync-mirror.md) — throttling, caching, local-first mirror

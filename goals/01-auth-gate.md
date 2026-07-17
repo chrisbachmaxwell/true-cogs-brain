@@ -1,5 +1,7 @@
 # Goal 01 — Sign-in gate live (username + password)
 
+**STATUS: DONE — shipped and verified (see log/2026-07-17-cleanup-run-and-2024-taxes.md and project-status).** Kept for the reasoning record.
+
 **Status:** ACTIVE — gate LIVE and verified locked 2026-07-15; remaining boxes need Chris's first sign-in (forced password change) and the admin-CRUD walkthrough.
 **Why first:** the dashboard shows Pictureline's full financials and was open to anyone with the URL until today.
 

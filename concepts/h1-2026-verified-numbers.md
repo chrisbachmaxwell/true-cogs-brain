@@ -1,3 +1,5 @@
+**SUPERSEDED (2026-07-17): these numbers carry the D33 credit bug (~$650k of phantom COGS hidden in the payroll remainder). Current H1-2026 NOI is $1,329,956 at 20.95% GP. The tie-out METHOD below is still the template; do not quote its numbers.**
+
 # H1 2026 verified numbers — the reference statement
 
 Range 2026-01-01 → 2026-06-30. Verified live against `/api/pnl-statement` on 2026-07-15. These are the regression reference: after any engine change, this range must reproduce these figures (closed months are cached — use `?refresh=1` to recompute).

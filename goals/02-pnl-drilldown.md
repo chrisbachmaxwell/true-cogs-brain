@@ -1,5 +1,7 @@
 # Goal 02 — P&L drill-down: click any number to see what's inside it
 
+**STATUS: DONE — shipped and verified (see log/2026-07-17-cleanup-run-and-2024-taxes.md and project-status).** Kept for the reasoning record.
+
 **Status:** ACTIVE (starts after goal 01)
 **Why:** Chris (2026-07-15): "I would like to be able to click into a total amount and then it would show me all the transactions or accounts that make up the number… This drill down is important to me so I can see where our numbers are coming from." He audits by checking numbers against his own knowledge — the drill-down is how he checks the app.
 

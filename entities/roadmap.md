@@ -1,33 +1,37 @@
 # Roadmap — WHAT IS LEFT
 
-**As of: 2026-07-15.** Ordered by what unblocks Chris fastest. Items marked **(Chris)** need his action first — always give him paste-ready commands.
+**As of: 2026-07-17, after the marathon correctness session.** Ordered by what unblocks Chris fastest. Items marked **(Chris)** need his action — always give him paste-ready steps.
 
-## 1. Sign-in gate live (username + password) — CURRENT GOAL → [../goals/01-auth-gate.md](../goals/01-auth-gate.md)
-The dashboard shows Pictureline's full financials and is open to anyone with the URL. Direction changed 2026-07-15 (D24): password-based user management replaces the email magic-link plan — build users table + login + admin user-management UI. **(Chris: choose an admin password when it ships.)** No Resend account needed anymore.
+## 1. ACH final mile **(Chris)**
+14 unmatched payments ($258,668.51) on raw/2026-07-17-ach-final-mile.html, then the closing journal entry (debit 68000 Vendor Overpayment Write-offs / credit ACH for the balance, ≈ +$99,533 once the 14 resolve) → ACH reads $0.00. Then remove/disable the reclassify tool (D27) and revoke agent admin (D28).
 
-## 2. P&L drill-down → [../goals/02-pnl-drilldown.md](../goals/02-pnl-drilldown.md)
-Click any statement amount to see the transactions/accounts behind it, with self-verifying sum-check lines, QBO deep links, and CSV export. Expenses drill down two levels (total → accounts → transactions). Requested by Chris 2026-07-15 (D25).
+## 2. The $500,000 savings question **(Chris — 30 seconds)**
+2025-09-15 "ONLINE XFER TO SAV ****3795" is coded to Shareholder Distributions. Zions business savings is ****3795 with book balance $348,759. Check the real savings balance: if it holds ~$500k more, the transfer was internal and is miscoded — 2025 "owners took" drops ~$500k, bank rises the same, and the books need the fix. Log Addendum 7 has the full story.
 
-## 3. Automated reconciliation checks → [../goals/03-reconciliation-checks.md](../goals/03-reconciliation-checks.md)
-A "Checks" page running the H1 tie-out invariants (income ≤ bank inflows, income decomposition exact, tax = ledger, direct method ties, drill-down sums match) green/red for any range. Approved by Chris 2026-07-15.
+## 3. Amex account repair **(bookkeeper — top hygiene priority)**
+PLATINUM Amex −009 carries a sign-flipped history (balance −$1.95M, impossible). This is now the LAST thing between Chris and ~100% profit tracing on /money (2025 traces 96%; H1-2026 only 79% because Amex movement is unusable). Treat like the ACH cleanup: pull history, find the flip point, checklist the fixes.
 
-## 4. Rotate the Railway account token **(Chris)**
-Token `f406ac63-…` was pasted into a chat session (source: conversation 2026-07-14). Rotate it at railway.com → Account Settings → Tokens once deploys are stable. See [../concepts/security-notes.md](../concepts/security-notes.md).
+## 4. Security chores **(Chris)**
+- Revoke agent admin when cleanup ends: Railway → Variables → `AGENT_IS_ADMIN` → `false` → Deploy (bootstrapAdmin syncs the flag down, D28).
+- Rotate the Railway account token (`f406ac63-…` appeared in chat): railway.com → Account Settings → Tokens.
 
-## 5. Monthly close routine (recurring, small)
-Each month-end Chris enters a physical inventory count on the /pnl page; the statement then computes accounting COGS for the new month. Counts exist for 2025-12-31 and 2026-06-30 only. Consider a reminder or a "count missing for last month" banner.
+## 5. Monthly close routine (live, keep the habit)
+Chris enters a physical count each month-end on /pnl (last: 2026-07-15). The statement's count-gap warnings nag when a range's counts are stale.
 
-## 6. Bank-ledger CSV reconciliation (parked by Chris: "I'll ask that later")
-Chris offered to pull the actual bank ledger so the reconciliation can include payroll (invisible to the QBO API — see [../concepts/qbo-api-invisible-transactions.md](../concepts/qbo-api-invisible-transactions.md)). Build: CSV upload → match against `/api/bank-flow` → itemize the ~$727k H1 "uncategorized" block.
+## 6. Remaining 2023 manual cleanups **(Chris, from the 66000 checklist)**
+Direct-deposit pulls (delete 22 + one $48,990.88 transfer from QuickBooks Checking), IRS pair, JENS $67k, teller $24.5k, SUI rows, 401k fees. Each raises 2023 NOI.
 
-## 7. Boise credit-memo audit (parked by Chris: "we can look into that later")
-Two open questions: (a) audit that credit memos issued to Boise match the online-sales/territory/rebate pass-through structure Chris described; (b) explain the credit-memo balance discrepancy — balance sheet shows ~$221k, transaction report totals ~$1.15M. Domain background: [../concepts/intercompany-boise-credit-memos.md](../concepts/intercompany-boise-credit-memos.md).
+## 7. Bookkeeper hygiene list (after Amex)
+concepts/ledger-hygiene-items.md: Cash on Hand negative, "Fraud" $84k, frozen A/P 20200 & A/R 11000, AX Purple account typing, sales-tax catch-up JEs (Chris's Option 1), 2022 items (Rent & Lease unnamed checks, Casual Labor capex, Wages-deleted), expense-audit eyeball lists (13/34/6 possible duplicates in 2024/2025/2026).
 
-## 8. Bookkeeper hand-off of ledger-hygiene items
-Known-bad balances (sales tax payable −$2.6M, Amex sign flipped, frozen A/P 20200 and A/R 11000, "Fraud" $84k, Cash on Hand −$79,568, ACH −$13M, "AX Purple" typed as liability) documented in [../concepts/ledger-hygiene-items.md](../concepts/ledger-hygiene-items.md). Also: verify the $30,000 deposit coded to Shareholder Distributions #31400 — possibly miscoded **(Chris/bookkeeper)**.
+## 8. Candidate builds (pick when wanted)
+- Year-vs-year mirror mode on /money (same categories, two columns) — natural v3 after the waterfall.
+- Sankey "money river" view — prettiest, held for later.
+- Bank-ledger CSV reconciliation (parked by Chris) — would itemize the payroll-invisible block.
+- Boise credit-memo audit (parked; the conduit principle in vendor-rebate-netting-question.md explains the mechanism, the per-memo audit remains).
 
-## 9. ~~Merge PR #1~~ — DONE 2026-07-15
-Merged at Chris's request (merge commit `9db9733`); `main` now carries the full application. Future code work starts fresh branches from `main`.
+## Done since the last roadmap (2026-07-15 → 17)
+Goals 01–04 shipped and verified (password auth live · P&L drill-downs → now inline drawers · /checks 9/9 on the corrected engine · dashboard consistency). ACH cleanup: $13.06M → −$159k via the admin-gated reclassify engine (D27/D28). Tax pulls 2023 (verified hand-done) + 2024 ($298k, engine). Feed-refunds income fix (D-feed). THE credit bug (D33): bill-payment lines are blended cash+credits — ~$1.2–1.5M/yr of phantom COGS removed; all years land on Chris's calibration (2023 $1.54M · 2024 $1.02M · 2025 $1.65M · H1-26 $1.33M). Cost basis = cash paid for the bill, on payment date (D32→D33). Exclusion (D26) removed. Profit-to-bank proof method + /money waterfall report + inline drawers everywhere + year/period picker + P&L compare + /cashflow & /bank date-format fix.
 
 ## Explicitly out of scope (agreed)
-Multi-company support, per-location P&L splits, writing anything back to QuickBooks (app is read-only by design — decision D2).
+Multi-company support, per-location P&L splits, QuickBooks writes beyond the one-time admin-gated cleanup engine (D2/D27 — engine to be disabled when ACH hits $0.00).

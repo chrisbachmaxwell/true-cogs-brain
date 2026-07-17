@@ -1,5 +1,7 @@
 # Goal 03 — Automated reconciliation checks ("Checks" page)
 
+**STATUS: DONE — shipped and verified (see log/2026-07-17-cleanup-run-and-2024-taxes.md and project-status).** Kept for the reasoning record.
+
 **Status:** ACTIVE — approved by Chris 2026-07-15 ("build all of them").
 
 ## Why
