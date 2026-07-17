@@ -1,6 +1,6 @@
 # Vendor rebates (50500) vs purchases-received — the open COGS question
 
-**Status: OPEN — do the Canon tie-out before changing the engine.** (2026-07-17, late)
+**Status: RESOLVED by D32 (2026-07-17, same night).** Chris set the rule himself — "I only want to count what we paid for the bill" — and his corrected calibration (2023 ≈ $1.8M, not $1M) matched full netting. Engine now books each bill at its cash settlement on the bill's date (computePurchasesSettled). The Canon tie-out is DEMOTED to a verification pass (run it if the recomputed years still miss calibration). Original analysis kept below for the record.
 
 ## Proven facts
 - Bills are booked GROSS: across 467 ACH-era payments, cash paid ($12,441,081.42) + credits applied ($1,405,690.94) = bill totals ($13,878,234.07) within 0.2%.
