@@ -1,0 +1,62 @@
+<meta charset="utf-8"><title>Amex Platinum register repair</title><style>
+body{font:15px/1.5 -apple-system,system-ui,sans-serif;max-width:1000px;margin:30px auto;padding:0 16px;color:#1d1d1f}
+h1{font-size:24px} h2{font-size:18px;margin:30px 0 6px;padding-top:16px;border-top:2px solid #e5e5ea}
+table{border-collapse:collapse;width:100%;font-size:13px}
+td,th{padding:5px 7px;border-bottom:1px solid #f0f0f2;text-align:left;vertical-align:top}
+td.n{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
+a{color:#0071e3;text-decoration:none} a:hover{text-decoration:underline}
+.both{display:inline-block;background:#0071e3;color:#fff;border-radius:7px;padding:1px 8px;font-size:12px;cursor:pointer}
+.sum{background:#f0f7ff;border:1px solid #cfe3fa;border-radius:12px;padding:12px 16px;font-size:14px;line-height:1.7}
+.warn{background:#fff8f0;border:1px solid #f0d9bf;border-radius:12px;padding:12px 16px;font-size:14px;line-height:1.7}
+.note{color:#6e6e73;font-size:13px;line-height:1.5}
+tr.ck td{color:#b0b0b5;text-decoration:line-through} tr.ck td a{color:#b0b0b5}
+#prog{position:sticky;top:0;background:#f5f5f7;padding:8px 14px;border-radius:0 0 10px 10px;font-weight:600;font-size:14px;z-index:2}
+input[type=checkbox]{transform:scale(1.15)}
+</style>
+<script>
+function openBoth(u1,u2){var w=Math.floor(screen.availWidth/2),h=screen.availHeight;
+window.open(u1,'dupL','left=0,top=0,width='+w+',height='+h);
+window.open(u2,'dupR','left='+w+',top=0,width='+w+',height='+h);}
+document.addEventListener('DOMContentLoaded',function(){
+  var KEY='amex-repair-checklist-v1';
+  var st={}; try{st=JSON.parse(localStorage.getItem(KEY)||'{}')}catch(e){}
+  var boxes=document.querySelectorAll('input[data-k]');
+  function upd(){var c=0; boxes.forEach(function(b){if(b.checked)c++; b.closest('tr').classList.toggle('ck',b.checked)});
+    document.getElementById('prog').textContent='Checked: '+c+' of '+boxes.length+' (saves automatically in your browser)';}
+  boxes.forEach(function(b){ if(st[b.dataset.k])b.checked=true;
+    b.addEventListener('change',function(){st[b.dataset.k]=b.checked; localStorage.setItem(KEY,JSON.stringify(st)); upd();});});
+  upd();});
+</script>
+<h1>Amex Platinum (-009) — why Posted shows −$2.0M, and the repair</h1>
+<div id="prog"></div>
+
+<div class="sum"><b>What's actually wrong (corrected diagnosis).</b>
+The payments on this card are almost all REAL — they show up once each on the Zions side, and Zions ties to the real
+bank feed. The register is broken because <b>years of CHARGES never made it into QuickBooks</b>:
+<br>• <b>Jan–Jun 2022:</b> $517,682.74 of payments booked with ZERO charges — the card feed only started around July 2022, so everything charged before that (and paid off during those months) is missing.
+<br>• <b>2024:</b> only $320,756.06 of charges booked against $826,473.68 of payments — the charge feed was broken most of Feb–Nov 2024.
+<br>• A few other holes (Aug 2025, Jun 2026 show payments with little or negative charges).
+<br>So QuickBooks thinks Amex owes YOU $2.0M. In reality the card owes Amex about $70,706 (the real feed number).
+Only about $155,000 of the gap might be genuinely duplicated payments — the three rows below.</div>
+
+<h2>Step 1 — Verify these 3 possible duplicate payments ($154,616.72)</h2>
+<p class="note">Each row is two book entries that may be one real payment. The tie-breaker is your Zions statement for that month: count the actual debits. Open both, compare, and only delete a copy when the statement shows one debit.</p>
+<table><tr><th></th><th class='n'>Amount</th><th>Entry 1</th><th>Entry 2</th><th></th><th>How to decide</th></tr><tr><td><input type=checkbox data-k='twin-7331'></td><td class='n'>$57,976.42</td><td><a href='https://qbo.intuit.com/app/creditcardpayment?txnId=7331' target='_blank'>2022-08-02 ↗</a><br><span class='note'>AUTOPAY PAYMENT - THANK YOU</span></td><td><a href='https://qbo.intuit.com/app/creditcardpayment?txnId=1640' target='_blank'>2022-08-03 ↗</a><br><span class='note'>AMEX EPAYMENT 0005000040ACH</span></td><td><span class='both' onclick="openBoth('https://qbo.intuit.com/app/creditcardpayment?txnId=7331','https://qbo.intuit.com/app/creditcardpayment?txnId=1640')">⧉ both</span></td><td class='note'>Two pay-down entries, one day apart, same amount — almost certainly ONE real payment seen by two feeds (card feed + bank feed). Check the August 2022 Zions statement: if only one $57,976.42 debit exists, delete one copy.</td></tr><tr><td><input type=checkbox data-k='twin-23091'></td><td class='n'>$20,000.00</td><td><a href='https://qbo.intuit.com/app/creditcardpayment?txnId=23091' target='_blank'>2022-12-06 ↗</a><br><span class='note'>AMEX EPAYMENT 0005000008ACH</span></td><td><a href='https://qbo.intuit.com/app/creditcardpayment?txnId=23092' target='_blank'>2022-12-13 ↗</a><br><span class='note'>AMEX EPAYMENT 0005000008ACH</span></td><td><span class='both' onclick="openBoth('https://qbo.intuit.com/app/creditcardpayment?txnId=23091','https://qbo.intuit.com/app/creditcardpayment?txnId=23092')">⧉ both</span></td><td class='note'>A week apart with identical memos. BUT $20,000 weekly installments were normal in 2022 — check the December 2022 Zions statement: if two $20,000 debits exist a week apart, these are BOTH real. Only delete if the statement shows one.</td></tr><tr><td><input type=checkbox data-k='twin-60291'></td><td class='n'>$76,640.30</td><td><a href='https://qbo.intuit.com/app/creditcardpayment?txnId=60291' target='_blank'>2026-07-02 ↗</a><br><span class='note'>AUTOPAY PAYMENT - THANK YOU</span></td><td><a href='https://qbo.intuit.com/app/creditcardpayment?txnId=60392' target='_blank'>2026-07-06 ↗</a><br><span class='note'>CUSTOMER SERVICE PAYMENT</span></td><td><span class='both' onclick="openBoth('https://qbo.intuit.com/app/creditcardpayment?txnId=60291','https://qbo.intuit.com/app/creditcardpayment?txnId=60392')">⧉ both</span></td><td class='note'>The July 2 autopay BOUNCED (the real Amex feed shows RETURNED AUTOPAY 07/02) and was retried July 6. Both attempts are booked but no return/reversal is. Either delete the July 2 copy or book the return — otherwise the books count this payment twice.</td></tr></table><h2>Step 2 — The missing-charge months (information, not deletions)</h2>
+<p class="note">These months booked payments but almost no charges. There is nothing to click here — the charges simply are not in QuickBooks. Re-entering 4 years of individual charges is not worth it; Step 3 fixes the balance in one entry.</p>
+<table><tr><th>Month</th><th class='n'>Charges booked</th><th class='n'>Payments booked</th></tr><tr><td>2022-01</td><td class='n'>$0.00</td><td class='n'>$120,000.00</td></tr><tr><td>2022-02</td><td class='n'>$0.00</td><td class='n'>$80,000.00</td></tr><tr><td>2022-03</td><td class='n'>$0.00</td><td class='n'>$80,000.00</td></tr><tr><td>2022-04</td><td class='n'>$0.00</td><td class='n'>$120,000.00</td></tr><tr><td>2022-05</td><td class='n'>$0.00</td><td class='n'>$66,889.06</td></tr><tr><td>2022-06</td><td class='n'>$0.00</td><td class='n'>$50,793.68</td></tr><tr><td>2024-02</td><td class='n'>$-4,102.93</td><td class='n'>$30,751.45</td></tr><tr><td>2024-09</td><td class='n'>$-7,259.39</td><td class='n'>$86,430.15</td></tr><tr><td>2026-06</td><td class='n'>$-33,122.81</td><td class='n'>$126,264.84</td></tr><tr><th>Total of these months</th><th class='n'></th><th class='n'>$761,129.18</th></tr></table><h2>Step 3 — One truing entry (do this WITH your accountant)</h2>
+<div class="warn">After Step 1 is settled, ask your accountant to post <b>one journal entry dated today</b> that sets the
+PLATINUM Amex register to the real feed balance (about <b>−$70,706 owed</b>, use the exact number from the Amex feed that day),
+with the offset to <b>Retained Earnings / Opening Balance Equity</b> (their call — it is a prior-period cleanup, and the missing
+charges span several tax years they have already filed on). This is the standard fix for a register that has drifted for years;
+it does not change any bank account and does not touch the current-year P&amp;L.
+<br><br><b>Why this is safe for our reports:</b> the cash reports in this app never used the Amex register — they count real
+bank cash only. This repair just makes the QuickBooks Banking screen stop showing a scary −$2.0M.</div>
+
+<h2>Also on the punchlist (found during this audit)</h2>
+<table>
+<tr><td><input type=checkbox data-k='p-axp'></td><td><b>AX Purple (64001):</b> the opposite problem — payments missing from its register (rebuilt balance +$353,490 vs real $33,656). Its Zions paydowns were coded to expense accounts instead of the card. Separate hunt, already planned.</td></tr>
+<tr><td><input type=checkbox data-k='p-99'></td><td><b>"Credit Cards" parent account:</b> 36 purchase lines coded to it with NEGATIVE amounts, −$554,747 since 2023 (cumulative +$554,747 of phantom balance). Needs its own look — likely miscoded card activity.</td></tr>
+<tr><td><input type=checkbox data-k='p-chase'></td><td><b>Chase:</b> small version of the same drift (~$25–82k). Same truing-entry fix after review.</td></tr>
+<tr><td><input type=checkbox data-k='p-qbc'></td><td><b>QuickBooks Checking:</b> real $0 vs posted −$48,991 — fix already prescribed earlier.</td></tr>
+</table>
+<p class="note">Generated 2026-07-17 from the live QuickBooks mirror. Read-only — nothing in QuickBooks was changed to make this page.</p>
