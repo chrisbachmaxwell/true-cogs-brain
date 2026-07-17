@@ -8,8 +8,12 @@
 ## 2. The $500,000 savings question **(Chris — 30 seconds)**
 2025-09-15 "ONLINE XFER TO SAV ****3795" is coded to Shareholder Distributions. Zions business savings is ****3795 with book balance $348,759. Check the real savings balance: if it holds ~$500k more, the transfer was internal and is miscoded — 2025 "owners took" drops ~$500k, bank rises the same, and the books need the fix. Log Addendum 7 has the full story.
 
-## 3. Amex account repair **(bookkeeper — top hygiene priority)**
-PLATINUM Amex −009 carries a sign-flipped history (balance −$1.95M, impossible). This is now the LAST thing between Chris and ~100% profit tracing on /money (2025 traces 96%; H1-2026 only 79% because Amex movement is unusable). Treat like the ACH cleanup: pull history, find the flip point, checklist the fixes.
+## 3. Amex/card register repair — DIAGNOSED, one JE fixes it **(Chris's todo — parked by his choice 2026-07-17)**
+Twin-matcher falsified the double-payment theory (Addendum 16): the −$2.0M PLATINUM Amex register is **missing charges** (pre-Jul-2022 history never booked $517k; 2024 feed collapse ~$500k; 9 sick months $761k), payments are real. TODO LIST (in order):
+- **(Chris)** Verify 3 possible duplicate payments (~$155k) against Zions statements — raw/2026-07-17-amex-repair-checklist.html (Aug-2022 $57,976.42 pair · Dec-2022 $20,000 pair · Jul-2026 bounced autopay $76,640.30 booked twice, return never booked).
+- **(Chris + accountant)** ONE truing journal entry: set Amex register = real feed balance (~−$70,706 owed, exact number from the feed that day), offset Retained Earnings/OBE. Prior-period cleanup — accountant's sign-off required. Fixes Posted = Bank.
+- Then same pattern: AX Purple (payments miscoded to expense accounts; fixing likely RAISES NOI), "Credit Cards" parent 99 (36 negative lines, −$554,747 since 2023), Chase (small), QB Checking (fix already prescribed).
+App reports unaffected throughout (they never read card registers).
 
 ## 4. Security chores **(Chris)**
 - Revoke agent admin when cleanup ends: Railway → Variables → `AGENT_IS_ADMIN` → `false` → Deploy (bootstrapAdmin syncs the flag down, D28).
