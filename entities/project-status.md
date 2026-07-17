@@ -1,6 +1,17 @@
 # Project status — WHAT IS DONE
 
-**As of: 2026-07-15, late** (verified against `chrisbachmaxwell/true-cogs`; build passes, 33/33 tests pass; all features below verified live)
+**As of: 2026-07-17** (verified against `chrisbachmaxwell/true-cogs` @ fceea9d; build passes, 43/43 tests; PR #2 open)
+
+## The 2026-07-16/17 cleanup sprint (see log/ + concepts/ach-clearing-account-h2-2025.md)
+- **Password auth ACTIVE** since 2026-07-15 (Chris set `ADMIN_EMAIL`/`ADMIN_INITIAL_PASSWORD` and signed in; agent service account `claude-agent@pictureline.com` exists, **currently admin per D28** — revoke with `AGENT_IS_ADMIN=false` + redeploy when cleanup ends).
+- **Reclassify write engine live** (`/cleanup`, D27/D28): tasks `ach-belt` (425 rows — done: engine + Chris's hand conveyor), `ach-stragglers` (23 rows — 21 reclassified $580,540.37, 1 hand-done, 1 correctly refused), `tax-pulls-2023` (16 rows — all already hand-fixed by Chris, verified + retired), `tax-pulls-2024` (8 rows, $298,197.82 — **dry-run clean, awaiting Chris's Reclassify click**).
+- **ACH balance: −$13,062,007.66 → −$159,135.97.** Remaining: 14 unmatched payments (~$259k), 8 quarantined rows (~$292k), overpayment residue (~+$102k) → one 68000 write-off entry.
+- **Exclusion (D26) removal decided (D30)** — mid-cleanup, 2024/2025 statements are unusable with it on (recomputed NOIs +$3.7M/+$9.9M). Chris pastes: `railway variables --set QBO_EXCLUDED_FUNDING_ACCOUNTS=` then `railway up --detach`, then refresh 2023–2025 and re-run /checks.
+- **2023 P&L after Chris's hand fixes: NOI $323,371.85** (was $281,943); rises further as the remaining 2023 manual items land (IRS pair, JENS $67k, teller $24.5k, direct-deposit deletes + $48,990.88 transfer, SUI, 401k).
+- Inventory counts edited by Chris 2026-07-16: 2025-12-31 → $2,783,704.06, 2026-06-30 → $3,266,991.24 (H1-2026 NOI accordingly $599,740.46, was $713,506.82). **Open question: the new 12/31 value suspiciously ≈ the SLC-only June figure — Chris to confirm both counts are company-wide.**
+
+---
+*The sections below describe the 2026-07-15 state and remain accurate except where superseded above.*
 
 ## Deployed and in use
 - Live at `https://web-production-8c8c0.up.railway.app` (Railway project `456f070c-f728-434f-9e8e-56923d776bc6`, Nixpacks, Postgres plugin, healthcheck `/health`).
