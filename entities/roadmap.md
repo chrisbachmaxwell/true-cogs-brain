@@ -10,7 +10,6 @@ Chris confirmed the Zions feed card combines checking + savings + spiff; real co
 
 ## 3. Amex/card register repair — DIAGNOSED, one JE fixes it **(Chris's todo — parked by his choice 2026-07-17)**
 UPDATE 2026-07-17 late: the 9 double/cross-coded 2025-26 payments are FIXED (engine run, verified penny-exact, Addendum 19); 2025 now traces 99.0% ($16,909 residual). Still open below. Twin-matcher falsified the double-payment theory (Addendum 16): the −$2.0M PLATINUM Amex register is **missing charges** (pre-Jul-2022 history never booked $517k; 2024 feed collapse ~$500k; 9 sick months $761k), payments are real. TODO LIST (in order):
-- **(Chris)** Verify 3 possible duplicate payments (~$155k) against Zions statements — raw/2026-07-17-amex-repair-checklist.html (Aug-2022 $57,976.42 pair · Dec-2022 $20,000 pair · Jul-2026 bounced autopay $76,640.30 booked twice, return never booked).
 - **(Chris + accountant)** ONE truing journal entry: set Amex register = real feed balance (~−$70,706 owed, exact number from the feed that day), offset Retained Earnings/OBE. Prior-period cleanup — accountant's sign-off required. Fixes Posted = Bank.
 - Then same pattern: AX Purple (payments miscoded to expense accounts; fixing likely RAISES NOI), "Credit Cards" parent 99 (36 negative lines, −$554,747 since 2023), Chase (small), QB Checking (fix already prescribed).
 App reports unaffected throughout (they never read card registers).
