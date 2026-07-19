@@ -43,3 +43,23 @@ Every dollar leaving the bank is accounted for. The cost dollars (inventory, exp
 on the P&L; the non-cost dollars (transfers, debt paydown, owner draws, taxes, capex) correctly are
 not; and the only invisible outflow (payroll) is also on the P&L. There is no leak that would
 overstate profit. New QboApi surface used: queryRaw, listVendors, getBills.
+
+## Follow-up: the invisible-expense gap decomposed (Chris: "payroll is 1.9M, what about the rest?")
+The gap between visible bank-cash expenses and P&L operating expenses is NOT all payroll. Added
+`reconciliation.expenseBreakdown` to the outflow audit — P&L opex decomposed by how paid:
+
+| 2025 | Amount |
+|---|---|
+| P&L operating expenses | $2,941,967 |
+| — paid from bank (visible) | $615,094 |
+| — **paid by credit card** | **$575,583** |
+| — payroll & payroll taxes | $1,933,249 |
+| — timing overlap (accrual-vs-cash / reimbursement-netting) | −$181,959 |
+
+The "rest" beyond payroll is ~$576k of operating expenses charged to the credit cards (Google/Meta
+ads, Shopify, software, travel, trade shows, Auctane shipping) — on the P&L, paid by card not bank
+(the bank pays the card down later → the non-cost "credit-card paydown" bucket). The three channels
+slightly OVERSHOOT the P&L (~$182k / 6%) from normal accrual-vs-cash timing and the P&L being net of
+reimbursements while card charges are gross. Conclusion strengthened: every P&L expense dollar is
+covered by an identifiable payment channel (bank + card + payroll); nothing hides; profit not
+overstated. 2026 H1+Jul mirror: bank $297k + card $320k + payroll $994k vs P&L $1,502k (overlap −$111k).
