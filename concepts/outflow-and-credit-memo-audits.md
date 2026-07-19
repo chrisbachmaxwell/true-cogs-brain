@@ -63,3 +63,30 @@ slightly OVERSHOOT the P&L (~$182k / 6%) from normal accrual-vs-cash timing and 
 reimbursements while card charges are gross. Conclusion strengthened: every P&L expense dollar is
 covered by an identifiable payment channel (bank + card + payroll); nothing hides; profit not
 overstated. 2026 H1+Jul mirror: bank $297k + card $320k + payroll $994k vs P&L $1,502k (overlap −$111k).
+
+## Clean additive expense decomposition (fixed the payroll double-count)
+Chris pushed: bank+card+payroll overshot the P&L, worried expenses inaccurate → profit overstated.
+The overshoot was a measurement double-count (payroll TAXES are both a "payroll" P&L row AND a bank
+tax deposit). Rebuilt the decomposition additively (payroll from P&L rows; non-payroll split by
+bank/card/unpaid, excluding payroll accounts from bank/card counting). Now sums to GROSS to the penny:
+
+| 2025 | Amount |
+|---|---|
+| Gross operating expenses (P&L) | $2,973,144.35 |
+| — payroll & taxes | $1,933,249.06 |
+| — non-payroll expenses | $1,039,895.29 |
+| &nbsp;&nbsp;&nbsp;• paid by bank | $537,221.27 |
+| &nbsp;&nbsp;&nbsp;• paid by credit card | $575,286.68 |
+| &nbsp;&nbsp;&nbsp;• timing (paid ahead / prior-yr bills) | −$72,612.66 |
+| CHECK sum | $2,973,144.35 ✓ (= gross) |
+
+2026 H1+Jul: gross $1,536,807 = payroll $994,333 + non-payroll $542,474 (bank $285,786 + card
+$320,399 + timing −$63,711). CHECK exact.
+
+**Basis clarified for Chris:** the P&L is HYBRID — income cash-based (bank-landed), COGS from physical
+counts, operating expenses ACCRUAL (from QBO books, booked when incurred regardless of payment method).
+Expenses intentionally do NOT tie to bank payments; accrual is more complete (captures card-paid,
+payroll, and unpaid-bill expenses). **Profit not overstated:** the timing line is NEGATIVE, i.e.
+bank+card paid slightly MORE than the year's booked expense (covering prior-year bills). A hole would
+be a POSITIVE leftover (expense booked, no payment); we have the opposite. `reconciliation.expenseBreakdown`
+now exposes this for any period.
