@@ -21,6 +21,7 @@
 - [concepts/profit-to-bank-proof.md](concepts/profit-to-bank-proof.md) — "if we made it, we can see it": the proof method behind /money, and its correction history
 - [concepts/vendor-rebate-netting-question.md](concepts/vendor-rebate-netting-question.md) — vendor credits, the conduit principle, and THE credit bug (D33)
 - [concepts/accounts-receivable-audit.md](concepts/accounts-receivable-audit.md) — the A/R balance is vendor rebates + Boise, not customer debt (audited)
+- [concepts/outflow-and-credit-memo-audits.md](concepts/outflow-and-credit-memo-audits.md) — every dollar leaving the bank is classified (no hole); credits move; payroll invisible but on the P&L
 
 ## Engineering lessons & dead ends
 - [concepts/qbo-rate-limits-and-sync-mirror.md](concepts/qbo-rate-limits-and-sync-mirror.md) — throttling, caching, local-first mirror
