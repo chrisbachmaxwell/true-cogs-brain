@@ -51,3 +51,4 @@
 ## Operations
 - [concepts/operations.md](concepts/operations.md) — deploy, env vars, Railway, sync, cache — with exact commands
 - [concepts/agent-onboarding.md](concepts/agent-onboarding.md) — paste-ready openers for future sessions
+- [concepts/agent-access-runbook.md](concepts/agent-access-runbook.md) — how a new session gets full capability (deploy/admin/QBO) **without secrets in git**

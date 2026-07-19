@@ -13,3 +13,6 @@ Chris: paste ONE of these as the first message of a new session. Each assumes th
 
 ## No-role "catch me up" (plain chat with Chris)
 > Read INDEX.md, entities/project-status.md, entities/roadmap.md and the newest file in log/ from true-cogs-brain, then give me a plain-language summary: what this project is, what works today, what's next, and anything waiting on me — with exact commands for anything I need to do.
+
+## Full capability (deploy / run the engine / QBO)
+To let an agent do everything the 07-17/19 sessions did, it needs deploy + admin credentials. **How** is in [agent-access-runbook.md](agent-access-runbook.md) — the secure pattern is to set `RAILWAY_API_TOKEN` (and optionally `AGENT_EMAIL`/`AGENT_PASSWORD`) as environment secrets, or paste them into the session's first message. Never put the values in this repo.
