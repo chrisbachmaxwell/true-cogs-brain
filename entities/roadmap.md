@@ -1,12 +1,12 @@
 # Roadmap — WHAT IS LEFT
 
-**As of: 2026-07-17, after the marathon correctness session.** Ordered by what unblocks Chris fastest. Items marked **(Chris)** need his action — always give him paste-ready steps.
+**As of: 2026-07-19.** Next input needed from Chris: the two Dec-2024 Amex statement balances (see item 3). Ordered by what unblocks Chris fastest. Items marked **(Chris)** need his action — always give him paste-ready steps.
 
 ## 1. ACH final mile **(Chris)**
 14 unmatched payments ($258,668.51) on raw/2026-07-17-ach-final-mile.html, then the closing journal entry (debit 68000 Vendor Overpayment Write-offs / credit ACH for the balance, ≈ +$99,533 once the 14 resolve) → ACH reads $0.00. Then remove/disable the reclassify tool (D27) and revoke agent admin (D28).
 
-## 2. The $500,000 savings question **(Chris — 30 seconds)**
-2025-09-15 "ONLINE XFER TO SAV ****3795" is coded to Shareholder Distributions. Zions business savings is ****3795 with book balance $348,759. Check the real savings balance: if it holds ~$500k more, the transfer was internal and is miscoded — 2025 "owners took" drops ~$500k, bank rises the same, and the books need the fix. Log Addendum 7 has the full story.
+## 2. ~~The $500,000 savings question~~ — RESOLVED 2026-07-17
+Chris confirmed the Zions feed card combines checking + savings + spiff; real combined $1,190,446 vs books $1,202,381 (~12k float, healthy). The savings can't be hiding $500k; the Shareholder-Distributions coding STANDS. (Log Addendum 14.)
 
 ## 3. Amex/card register repair — DIAGNOSED, one JE fixes it **(Chris's todo — parked by his choice 2026-07-17)**
 UPDATE 2026-07-17 late: the 9 double/cross-coded 2025-26 payments are FIXED (engine run, verified penny-exact, Addendum 19); 2025 now traces 99.0% ($16,909 residual). Still open below. Twin-matcher falsified the double-payment theory (Addendum 16): the −$2.0M PLATINUM Amex register is **missing charges** (pre-Jul-2022 history never booked $517k; 2024 feed collapse ~$500k; 9 sick months $761k), payments are real. TODO LIST (in order):

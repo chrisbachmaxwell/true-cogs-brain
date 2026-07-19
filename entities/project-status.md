@@ -1,6 +1,14 @@
 # Project status — WHAT IS DONE
 
-**As of: 2026-07-17, session end** (build passes, 48/48 tests; PR #2 open and carries the whole sprint). Reports live: P&L (inline drill drawers, year/period picker, vs-year compare), /money (waterfall profit proof), /bank, /cashflow (both repaired), /checks (9/9 on the D33 engine), /cleanup (admin-gated).
+**As of: 2026-07-19, session end** (build passes, 48/48 tests; PR #2 open and carries the whole sprint). Reports live: P&L (inline drill drawers, year/period picker, vs-year compare, cold load 1.6s), /money (waterfall profit proof; **2025 traces 99.0%**), /bank, /cashflow, /checks (**10/10**), /cleanup (admin-gated).
+
+## The 2026-07-19 card-repair + speed session (log addenda 16–20)
+- **Card-register diagnosis corrected then FIXED for 2025–26.** Twin-matcher falsified the "payments recorded twice for five years" theory (Add.16): the −$2.0M Platinum register is mostly MISSING CHARGES (pre-Jul-2022 history ~$517k; 2024 feed collapse ~$500k — QBO never backfills feed gaps >90 days). 2025–26 data is COMPLETE; its 9 double/cross-coded payments ($358,305.61) were recoded to the Credit Cards wash account by the engine (tasks `card-payments-2025-26-amex` 8 rows + `-purple` 1 row, Chris-approved, verified penny-exact: register 63 → −1,750,901.10, 100 → +387,826.39). Before-images in reclassify_log.
+- **Money-map now measures 2025+ card movement from transactions** (registerMovement helper) instead of dropping broken registers: residuals now 2023 $250,819 · 2024 $196,204 · **2025 $16,909 (DONE)** · H1-2026 $206,813 (≈ AXP payments hiding in expense accounts ~$90–120k + payroll cash-later wedge).
+- **CreditCardPayment entity mirrored end-to-end** (raw query path in qbo.ts — node-quickbooks predates it); new read-only diagnostics: /api/card-dupe-match, /api/txn-raw, /api/register-history?list=1.
+- **P&L cold load 33.3s → 1.6s** (batch getBills prefetch in inventorySpend bucket 1) + **post-sync cache pre-warming** (current YTD + last 3 years) so Chris always lands warm (~0.3s). NOIs verified unchanged; checks 10/10 (new #10 payment-line-identity).
+- **Waiting on Chris (his todo list, roadmap item 3):** ① Dec-2024 Amex statement balances (Platinum predicted **$364,944.19**; Purple's number sizes the hidden-payment hunt) ② one truing JE with the accountant (register → real feed balance ~−$70,706) ③ bookkeeper: bounced 07/02 autopay $76,640.30 booked twice (CCPs 60291/60392), return never booked.
+
 
 ## The 2026-07-16/17 cleanup sprint (see log/ + concepts/ach-clearing-account-h2-2025.md)
 - **Password auth ACTIVE** since 2026-07-15 (Chris set `ADMIN_EMAIL`/`ADMIN_INITIAL_PASSWORD` and signed in; agent service account `claude-agent@pictureline.com` exists, **currently admin per D28** — revoke with `AGENT_IS_ADMIN=false` + redeploy when cleanup ends).
