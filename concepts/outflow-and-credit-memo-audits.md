@@ -90,3 +90,18 @@ payroll, and unpaid-bill expenses). **Profit not overstated:** the timing line i
 bank+card paid slightly MORE than the year's booked expense (covering prior-year bills). A hole would
 be a POSITIVE leftover (expense booked, no payment); we have the opposite. `reconciliation.expenseBreakdown`
 now exposes this for any period.
+
+## The negative-leftover source, traced to the account (Chris: "leftover could mean we didn't record an expense?")
+Direction reasoning: a MISSING expense = booked > paid (expense on books, no cash). Our leftover is
+NEGATIVE (paid > booked), which cannot be a missing expense. Traced the −$72,613 (2025) per account
+via `reconciliation.expenseBreakdown.accountDivergence`. FIRST hypothesis (prior-year bills) was WRONG
+— priorPeriodBillCash measured $0.00 (Pictureline pays bills same-year). Real source, two accounts:
+- **Health Insurance**: paid $105,122 gross premiums, P&L net expense $61,806 → −$43,316 = employee
+  health contributions (employee share deducted via payroll; company fronts full premium, P&L shows net).
+- **Advertising**: paid $244,171, P&L net $216,842 → −$27,328 = vendor advertising co-op / MDF (the same
+  rebate pipeline; brands reimburse part of ad spend).
+Both are money coming BACK that nets the expense down — the P&L correctly shows net cost. The offsetting
+credits partly flow through payroll (API-invisible) but ARE in QBO's P&L (which the app reads), which is
+why net booked < gross paid. Conclusion: leftover is recoveries/reimbursements, the OPPOSITE of a missing
+expense. Lesson (again): don't assert the cause before the measurement — I claimed prior-year bills,
+data said $0; the account divergence gave the true source.
