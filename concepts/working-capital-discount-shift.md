@@ -109,3 +109,16 @@ registers, measured-card fix only applies to ranges starting ≥2025) + payroll 
 not a separate use). Inventory Δ here is +$709,982 (money-map anchors begin-count at 2022-12-31 $2.66M);
 the capstone table above used the 2023-12-31 count ($2.34M → +$1.03M) — difference is the 2023 inventory
 dip and which count anchors the start.
+
+## CORRECTED with real 2023-06-30 inventory count (Chris provided $2,084,538.88, entered into system)
+The partnership-date physical count was $2,084,538.88 (my system previously only had year-ends; entered
+via /api/inventory-counts, permanent). This raises accuracy:
+- Inventory growth since partnership: **+$1,285,761** (2023-06-30 $2,084,539 → 2026-07-15 $3,370,300).
+- **NOI since partnership rises to $4,364,611** (lower begin inventory → less cost carried in; +$576k vs
+  the $3,788,833 computed off the 2022-12-31 baseline).
+- Money-map since 2023-07-01: NOI $4,364,611 · traced $3,650,009 (**84%**) · residual $714,602 (**16%**,
+  same dollars, smaller % as NOI rose). Uses: owners $1,644,329 (38%) · inventory $1,285,761 (29%) ·
+  bank $491,298 (11%) · capex $302,809 (7%) · financing/other −$74,187.
+- Net working capital (bank+inventory−A/P): partnership **$1,612,218** → now **$4,333,954** = **+$2,721,736**.
+Supersedes the earlier capstone's $3.79M NOI / +$710k inventory / +$2.47M WC (those used the wrong
+inventory baseline). Owner total incl 1040-ES taxes $509,624 unchanged at $1,644,329.
