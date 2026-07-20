@@ -86,3 +86,26 @@ The ~$800k shift: scaling pay-upfront converted ~$945k of vendor float into owne
 cash cost, not lost — sits in bank+inventory), in exchange for the discount engine (~$747k captured
 2023-26, ~$285k/yr run-rate) ≈ ~30% annual return on the tied-up capital, plus owning working capital
 outright. Chris's memory (~$500k → actual $652k checking) and the whole thesis confirmed.
+
+## Full "where all the money went since July 2023 partnership" vs P&L (Chris: include 1040/taxes)
+Money-map for 2023-07-01..2026-07-20. **Cumulative cash-verified NOI = $3,788,833.**
+Where it went (traced $3,074,231 = 81%):
+| Use | Amount | % |
+|---|---|---|
+| To owners (distributions+dividends+1040-ES) | $1,644,329 | 43% |
+| Inventory (counts) | $709,982 | 19% |
+| Bank (retained) | $491,298 | 13% |
+| Capex (leasehold/furniture/machinery/autos) | $302,809 | 8% |
+| Financing & other (net) | −$74,187 | −2% |
+| **Untraced residual** | **$714,602** | **19%** |
+
+OWNER TOTAL $1,644,329 = distributions $892,981 (Shareholder 418,717 · Jens 189,800 · S-corp 148,639 ·
+Chris 47,725 · David 44,050 · Nick 44,050) + dividends $241,724 + **1040-ES estimated taxes $509,624**
+(acct 185: $170,587 @ 2023-06-30 → $680,211 now = +$509,624). This is the full Fed/owner-related total.
+
+Residual 19% is honest: for a multi-year range the pre-2025 Amex/card paydowns are excluded (broken
+registers, measured-card fix only applies to ranges starting ≥2025) + payroll timing. 2025-alone traces
+99%. Separately, A/P float paid down $944,676 (info-only — already in COGS under the pay-when-paid rule,
+not a separate use). Inventory Δ here is +$709,982 (money-map anchors begin-count at 2022-12-31 $2.66M);
+the capstone table above used the 2023-12-31 count ($2.34M → +$1.03M) — difference is the 2023 inventory
+dip and which count anchors the start.
