@@ -122,3 +122,14 @@ via /api/inventory-counts, permanent). This raises accuracy:
 - Net working capital (bank+inventory−A/P): partnership **$1,612,218** → now **$4,333,954** = **+$2,721,736**.
 Supersedes the earlier capstone's $3.79M NOI / +$710k inventory / +$2.47M WC (those used the wrong
 inventory baseline). Owner total incl 1040-ES taxes $509,624 unchanged at $1,644,329.
+
+## Can the residual be resolved by attributing it to A/P paydown? NO (Chris asked 2026-07-20)
+Answer: no — double-counts. Under the pay-when-paid rule, A/P paydown ($944,676 since partnership) is
+ALREADY inside cash-basis COGS (purchases = cash paid for inventory), so it already reduced NOI.
+Relabeling the residual as "A/P paydown" would count those dollars twice (cost + destination) and falsely
+zero the residual. A/P is correctly info-only in the money-map. PROOF it's a card problem not A/P:
+residual concentrates in the broken-register era — 2023H2-2024 $303,317 (21%) vs 2025-now $216,689 (7%),
+2025-alone $16,909 (1%). In 2023-07..2024-12, $1,085,519 cash flowed to cards but the corrupted Amex/AXP
+registers can't net charges vs paydowns → lands untraced. Real fix = the parked card-register repair
+(Dec-2024 Amex statement balances + AXP recode + truing JE), which shrinks it for real (as 2025 proved),
+NOT reclassification to A/P.
