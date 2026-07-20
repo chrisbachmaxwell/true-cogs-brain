@@ -22,6 +22,7 @@
 - [concepts/vendor-rebate-netting-question.md](concepts/vendor-rebate-netting-question.md) — vendor credits, the conduit principle, and THE credit bug (D33)
 - [concepts/accounts-receivable-audit.md](concepts/accounts-receivable-audit.md) — the A/R balance is vendor rebates + Boise, not customer debt (audited)
 - [concepts/outflow-and-credit-memo-audits.md](concepts/outflow-and-credit-memo-audits.md) — every dollar leaving the bank is classified (no hole); credits move; payroll invisible but on the P&L
+- [concepts/working-capital-discount-shift.md](concepts/working-capital-discount-shift.md) — the pay-upfront/discount shift (late 2024, ~$800k float unwind) and where the cash went
 
 ## Engineering lessons & dead ends
 - [concepts/qbo-rate-limits-and-sync-mirror.md](concepts/qbo-rate-limits-and-sync-mirror.md) — throttling, caching, local-first mirror
