@@ -133,3 +133,25 @@ residual concentrates in the broken-register era — 2023H2-2024 $303,317 (21%) 
 registers can't net charges vs paydowns → lands untraced. Real fix = the parked card-register repair
 (Dec-2024 Amex statement balances + AXP recode + truing JE), which shrinks it for real (as 2025 proved),
 NOT reclassification to A/P.
+
+## Rigorous 2023H2-2024 residual decomposition ($303,317) — traced to the broken Amex + ACH
+Full balance-sheet diff 2023-06-30 → 2024-12-31 (every account). Clean accounts all reconcile into the
+money-map in-proof buckets ($1,107,501). Residual maps ENTIRELY to excluded/broken accounts:
+- Sales Tax Payable −$1,377,793 (correctly excluded — netted in income, not profit)
+- A/P −$1,023,991 (correctly excluded — in COGS under pay-when-paid)
+- **PLATINUM Amex (broken register) −$542,506** — mostly PHANTOM: Chris confirms card balances never
+  exceeded ~$150k, so the −$542k book "paydown" is largely the broken feed (dropped charges), not real cash.
+- **ACH clearing −$147,389** (the double-counting mess, not cleaned until 2025)
+- Fraud +$84,195 / Cash on Hand −$23,000 (artifacts)
+CONCLUSION: the pre-2025 residual is measurement noise from the two systems broken until the 2025 cleanup
+(Amex register + ACH clearing) — NOT A/P, not cards-generally, not 401k, not missing money. Cannot split
+"phantom" vs "real unbooked 2024 card spending" without the Dec-2024 Amex STATEMENT balance (on Chris's
+to-do list). Open question it would close: whether the 2024 Amex feed gap left ~$150-300k of real card
+spending unexpensed (→ 2024 NOI modestly overstated) or it's all phantom (→ NOI stands). This is why
+2025 closes to 1% residual and 2023-24 is 21%. Dec-2024 Amex statement balance = highest-value next input.
+
+## 401k question resolved (Chris asked): Fidelity, properly expensed
+No dedicated 401k account; profit-sharing accounts dormant/frozen. Company funds Fidelity: $92,534 on
+2025-09-16 (none big in 2023-24), coded to "Payroll Liablities" (id 105) which nets to $0 (accrued via
+payroll then paid) → employer-match portion IS expensed inside the Payroll line; employee-deferral portion
+correctly a pass-through (not expense). NOT part of residual (2025 closes to 1% with it included).
