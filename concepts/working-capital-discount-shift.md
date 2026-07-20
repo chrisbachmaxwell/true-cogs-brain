@@ -39,3 +39,27 @@ Cash didn't vanish: it's in inventory + faster vendor payments, and the discount
 - Derived A/P (cumulative bills − bill-payments) is WRONG — distorted by ~$4.75M of vendor credits
   applied without a cash BillPayment; endpoint uses real balance-sheet A/P instead.
 - 2022 bill data is sparse (bill usage ramped late 2022) → early-quarter timing unreliable.
+
+## CORRECTION (Chris: discounts were tracked in "Discounts/Refunds Given" before 2026)
+My "late 2024, not 2023" conclusion was WRONG — I only scanned the new "Vendor Discounts" COGS
+accounts (which the accountant only started using in 2026). Chris: the accountant tracked vendor
+early-pay discounts in **"Discounts/Refunds Given" (acct 58, Income)** through 2025, then moved them to
+dedicated Vendor Discounts accounts (50551 SLC / 50552 Boise) in 2026. Reading the RIGHT account (via
+the accrual P&L) the timeline CONFIRMS Chris's ~May-2023 memory:
+
+| Year | Vendor early-pay discounts captured |
+|---|---|
+| 2022 | ~$0 (−$9,851, noise) |
+| **2023** | **$134,243** ← started; quarterly: Q1 $14,575 → **Q2 $43,318 (≈May)** → Q3 $37,246 → Q4 $39,104 |
+| 2024 | $205,837 |
+| 2025 | $254,537 (Discounts/Refunds Given) + $7,721 (new Vendor Discounts) |
+| 2026 H1 | ~$142,000 (mostly moved to Vendor Discounts SLC $140,961) |
+
+RECONCILED STORY (both Chris's memory AND the A/P data are right): early-pay discounts **started Q2
+2023** (~May, ~$40k/qtr, growing) — a gradual rollout on some vendors. A/P float declined gradually
+through 2023 ($1.45M→$1.03M) as they paid faster, then **collapsed in H2-2024** ($1.03M→$115k) when the
+program scaled to most vendors. Payment speed: ~25 days (2023) → ~16-17 days (late-2024+). So: discounts
+2023-onward (Chris ✓), biggest cash/working-capital impact late-2024. Total discounts captured 2023-2026
+≈ $740k of real margin. Endpoint fixed to read the P&L discount accounts (old + new). NOTE: acct 58
+"Discounts/Refunds Given" historically also held some customer refunds, so pre-2023 figures are noise;
+the 2023+ growth is the vendor-discount program.
