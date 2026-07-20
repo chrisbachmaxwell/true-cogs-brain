@@ -155,3 +155,16 @@ No dedicated 401k account; profit-sharing accounts dormant/frozen. Company funds
 2025-09-16 (none big in 2023-24), coded to "Payroll Liablities" (id 105) which nets to $0 (accrued via
 payroll then paid) → employer-match portion IS expensed inside the Payroll line; employee-deferral portion
 correctly a pass-through (not expense). NOT part of residual (2025 closes to 1% with it included).
+
+## CORRECTION (Chris: "didn't we already check all cash leaving so expenses are accurate?") — he's right
+Walked back the prior-message concern that the 2024 Amex feed gap might have left ~$150-300k of real
+spending unexpensed (→ 2024 NOI overstated). Fresh check: card-paid OPERATING EXPENSES are steady across
+years — 2023 $751,925 · 2024 $565,331 · 2025 $575,287. If 2024 had dropped real expense charges, 2024
+would dip; it doesn't (matches 2025). Combined with the outflow audit (every bank dollar classified,
+unclassified=$0) and the bank+card+payroll=P&L tie-out, EXPENSES ARE VERIFIED ACCURATE. Therefore the
+$303k 2023-24 residual is NOT missing expenses / overstated profit — it's a bridge-arithmetic artifact of
+the PHANTOM Amex/ACH book movements (broken until 2025 cleanup): the −$542k Amex and −$147k ACH book
+changes aren't real cash, so they don't net cleanly in the profit-to-uses bridge (why 2023-24=21% residual
+vs 2025=1%). Dec-2024 Amex statement still useful to convert phantom Amex into a clean tie-out, but now
+EXPECTED to confirm phantom, not overstatement. Net: Chris's memory correct — the cash-leaving check was
+done and passed; residual ≠ hole.
