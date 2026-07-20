@@ -63,3 +63,26 @@ program scaled to most vendors. Payment speed: ~25 days (2023) → ~16-17 days (
 ≈ $740k of real margin. Endpoint fixed to read the P&L discount accounts (old + new). NOTE: acct 58
 "Discounts/Refunds Given" historically also held some customer refunds, so pre-2023 figures are noise;
 the 2023+ growth is the vendor-discount program.
+
+## Capstone: "how much did we actually make since the July 2023 partnership?" (Chris + 2 became partners ~July 2023)
+Chris recalled ~$500k bank working capital at the partnership; wanted the TRUE gain given ~$800k had to
+be sunk into paying upfront. Positions (real banks 52+74+75, inventory=physical counts, A/P=acct 54):
+
+| | 2023-06-30 (partnership) | 2026-07-20 (now) | Δ |
+|---|---|---|---|
+| Cash in bank (real) | $666,794 | $1,158,092 | +$491,298 |
+| Inventory (counts; 2023-12-31 $2,340,174 nearest) | ~$2,340,174 | $3,370,300 | +$1,030,126 |
+| A/P (vendor float) | −$1,139,115 | −$194,438 | +$944,677 paid off |
+| **Net working capital (bank+inv−AP)** | **$1,867,853** | **$4,333,954** | **+$2,466,101** |
+
+Key reframe: at partnership NET cash position (bank − A/P) was −$472k (running on vendor money); now
++$964k → a $1.44M swing, before the +$1.03M inventory. Bank alone (+$491k) hides that ~$945k of vendor
+debt was paid off and ~$1M of inventory built. PLUS distributions/dividends taken since partnership
+≈ $1,134,705 (Jens 189,800 · David 44,050 · Nick 44,050 · Chris 47,725 · dividends 241,724 · S-corp
+148,639 · shareholder-dist reclass 418,717). TOTAL value generated ≈ $2.47M (working-cap build) + $1.13M
+(distributions) ≈ **~$3.6M in 3 years** — vs a bank increase of only $491k.
+
+The ~$800k shift: scaling pay-upfront converted ~$945k of vendor float into owned working capital (real
+cash cost, not lost — sits in bank+inventory), in exchange for the discount engine (~$747k captured
+2023-26, ~$285k/yr run-rate) ≈ ~30% annual return on the tied-up capital, plus owning working capital
+outright. Chris's memory (~$500k → actual $652k checking) and the whole thesis confirmed.
