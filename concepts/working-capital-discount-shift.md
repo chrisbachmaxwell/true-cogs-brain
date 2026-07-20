@@ -168,3 +168,20 @@ changes aren't real cash, so they don't net cleanly in the profit-to-uses bridge
 vs 2025=1%). Dec-2024 Amex statement still useful to convert phantom Amex into a clean tie-out, but now
 EXPECTED to confirm phantom, not overstatement. Net: Chris's memory correct — the cash-leaving check was
 done and passed; residual ≠ hole.
+
+## Chris's insight: residual partly = old-bill / A/P paydown timing (validated)
+Chris asked if the residual is "due to bills at the time." Tested residual vs A/P change by period:
+| Period | NOI | Residual | ΔA/P |
+|---|---|---|---|
+| H2-2023 | $391,198 | **$107,113** | **−$107,157** (near-exact match!) |
+| 2024 | $1,019,620 | $196,204 | −$916,834 |
+| 2025 | $1,645,210 | $16,909 (1%) | +$567,623 (grew) |
+| H1-2026 | $1,329,956 | $206,813 | +$83,793 |
+H2-2023 residual ≈ A/P paydown to within $44 → REAL piece. Mechanism: paying down OLD bills (esp.
+non-inventory/expense bills already expensed in a prior period under pay-when-paid) sends cash out with no
+matching current-period cost → positive residual. Confirmed partial: 2025 grew A/P and residual→1%;
+H1-2026 residual $207k with A/P flat is NOT bills (it's the AXP-payments-in-expense-accounts issue).
+SYNTHESIS: residual is a MIX, no single cause — (1) old-bill/A/P timing [Chris, biggest 2023-24],
+(2) broken Amex phantom, (3) ACH clearing pre-cleanup, (4) AXP miscoding [H1-2026]. NOT missing money;
+proof = clean-books 2025 closes to 1%. "Can't find it as one pile" because it was never one pile — it's
+summed accounting-timing noise from paying down the vendor float using still-broken card/ACH books.
