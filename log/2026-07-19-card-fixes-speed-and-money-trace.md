@@ -26,3 +26,15 @@ Credit-memo / A/P explanation delivered to Chris (see below in chat): A/P = unpa
 
 ## Addendum: outflow & credit-memo audits (Chris: "does money leaving the bank show up as COGS/expenses? if not, PNL is overstated")
 Built /api/credit-memo-audit and /api/outflow-audit. RESULTS: (1) credits move — vendor credits 2,547 issued $4.75M, only 9 open ($7,034.65), $510.70 >180d; customer memos $0 open. (2) Outflow **unclassified = $0.00** for 2025 AND 2026 — every dollar leaving the real cash pool (Zions ck+2 savings+ACH) is classified. Cost buckets (inventory/COGS, opex, refunds) are on the P&L; non-cost (transfers, card/loan paydown, owner draws, 1040-ES, capex) correctly aren't. THE PAYROLL POINT: visible cash opex ($615k 2025) << P&L opex ($2.94M) because ~$2.3M payroll + STC leave the bank invisibly (no QBO txns) yet ARE on the accrual P&L → counted, safe direction, profit NOT overstated. Fixed a D33-style over-attribution bug mid-build (bill-payment lines are blended cash+credits; scaled by cashFraction → unclassified went from −$1.2M to $0.00). New concept: outflow-and-credit-memo-audits.md. New endpoints all read-only.
+
+## Incident 2026-07-21: P&L page "upstream error is not valid JSON" — fixed
+Chris's /pnl (custom Jan1–Jul21) hung until the Railway edge returned plain-text "upstream error";
+jfetch's res.json() then threw the raw parse error at him (violating the no-raw-errors rule). ROOT
+CAUSE: the per-bill-line console.log in inventorySpend bucket 1 — a multi-year statement compute (the
+since-partnership money-map ranges) emits tens of thousands of synchronous stdout writes; stdout
+backpressure stalls the Node event loop → ALL requests hang past the proxy timeout. FIXES (commit
+pushed + deployed): (1) removed the per-line log (transactions[] is the audit trail); (2) jfetch now
+reads text first and translates non-JSON bodies to "The server is taking longer than usual… press
+Refresh". VERIFIED: exact failing call → 200 in 1.68s cold / 0.74s warm, valid JSON; jfetch marker
+live. LESSON: never per-item console.log inside range-sized loops — log volume is a DoS on your own
+event loop (stdout backpressure blocks synchronously).
