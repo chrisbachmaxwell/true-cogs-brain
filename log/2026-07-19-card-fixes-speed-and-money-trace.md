@@ -38,3 +38,17 @@ reads text first and translates non-JSON bodies to "The server is taking longer 
 Refresh". VERIFIED: exact failing call → 200 in 1.68s cold / 0.74s warm, valid JSON; jfetch marker
 live. LESSON: never per-item console.log inside range-sized loops — log volume is a DoS on your own
 event loop (stdout backpressure blocks synchronously).
+
+## A/P deep-dive (2026-07-21): 2026 trajectory + the negative balance explained
+Chris asked where 2026 A/P started and what the paydown did to P&L: started $682,747 (Jan 1) → Jan paydown
+to $139,413 → rebuilt to $894,838 (May 31) → $766,540 (Jun 30) → **−$72,532 (Jul 21)** after a $839,072
+July paydown; net YTD paydown $755,279. P&L effect: under pay-when-paid the paydown landed as 2026 cost →
+YTD NOI through Jul-21 reads $1,070,736 (July alone ≈ −$260k paper loss); WITHOUT the paydown YTD would be
+~$650-700k higher (~$1.7-1.8M economic). Same timing effect as 2024-vs-2025 COGS% (83.2% vs 78.2% — both
+~80%/20% margin once normalized for ΔA/P; also explained to Chris).
+NEGATIVE A/P TRACED (new /api/ap-audit, per-vendor balances): NOT unapplied vendor credits (only $2,264
+open). Cause = placeholder vendor literally named "Vendor" at **−$418,169.68** (July payments recorded
+against it, unmatched), while real bills remain open (Fujifilm $170,163 · ASI $119,936 · Aputure $14,888 ·
+others ~$41k = +$345,656 still owed). Cash/P&L unaffected (money counted once); pure matching problem.
+BOOKKEEPER PUNCHLIST: reassign the "Vendor" payments to real vendors and apply to their open bills;
+investigate why bank-feed payments created the placeholder (payee-name matching rule).
