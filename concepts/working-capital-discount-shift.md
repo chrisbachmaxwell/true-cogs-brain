@@ -199,3 +199,16 @@ the fall); full-2026 discounts ~$320-340k. Predictable Q1-2027 rebate spike from
 above typical quarter — flatters next H1, as it always has). Magnitude at half-year NOI level still
 small vs the ~$500k H1/H2 gap (margin pattern remains the big lever), but the mechanism timing is now
 correctly documented per Chris.
+
+## Per-location discount rates (Chris: Boise mix should earn a higher %) — 2026-07-21
+New /api/location-discounts (billed inventory per location account vs Vendor Discounts SLC/Boise, monthly,
+bills+purchases+vendor credits+JEs). Clean-window results: **SLC Jan–Jul 2026: $10,528,922 inventory,
+$143,263 discounts = 1.36%. Boise Nov 2025–Jul 2026: $368,789, $7,045 = 1.91%.** Chris's hypothesis holds
+directionally (+40% higher rate). CAVEATS: (1) Boise direct purchases tiny/erratic (negative months) —
+most Boise stock likely arrives via SLC bills + transfers → Boise denominator unreliable; (2) May-2026
+−$22,044 reversal in Vendor Discounts Boise (ask bookkeeper — if it's a reclass, Boise's true rate is much
+higher and some Boise discounts sit in the SLC account); (3) Dec-2025 −$15.8M on 11900 is the year-end
+book-inventory correction JE (excluded; also why SLC window starts Jan-2026 — SLC discounts lived in
+Discounts/Refunds Given before then). Boise "upended" (onboarded) Nov 2025 per Chris. Bookkeeper asks:
+explain May reversal; keep Boise purchases+discounts consistently on Boise accounts or declare the
+SLC-supply model so a transfer-aware method can be built.
