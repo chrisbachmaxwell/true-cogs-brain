@@ -212,3 +212,15 @@ book-inventory correction JE (excluded; also why SLC window starts Jan-2026 — 
 Discounts/Refunds Given before then). Boise "upended" (onboarded) Nov 2025 per Chris. Bookkeeper asks:
 explain May reversal; keep Boise purchases+discounts consistently on Boise accounts or declare the
 SLC-supply model so a transfer-aware method can be built.
+
+## Per-vendor rates + the tagging discovery (2026-07-21, cont.)
+Chris: Boise is supplied BY SLC (intercompany; the 11901/$369k is settlement traffic, "vendor
+credits/credit memos are from Salt Lake") → per-location accounts can't answer the mix question; and
+"bills should be tagged Boise". BUILT /api/vendor-discount-rates (2026 YTD): blended 1.45% on $11.77M;
+**Nikon 3.60% ($53,819) · Canon 2.97% ($81,417) · Westcott 5.14% · Sigma 2.00% · MAC 1.37% · Sony 1.00%
+($22,505) · ASI/Fujifilm/Leica/Aputure/Profoto/ProMaster/Ingram etc. 0%** — the discount engine is a
+Canon+Nikon story ($135k of $171k). BUILT /api/tag-scan: **all 3,942 bills of 2026 ($11.2M inventory) have
+NO Location (DepartmentRef) and NO Class tags** — the "tag it Boise" intention is not reaching QBO.
+RECOMMENDATIONS to Chris: (1) enable QBO Location tracking + tag bills SLC/Boise going forward (tracker
+then splits per store natively); (2) meanwhile give me Boise's approximate brand mix and I'll compute the
+per-store effective rates from the vendor table (Boise Canon/Nikon-heavy ⇒ ~2.3-2.7% vs SLC ~1.2%).
