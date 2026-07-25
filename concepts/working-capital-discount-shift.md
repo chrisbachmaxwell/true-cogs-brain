@@ -185,3 +185,17 @@ SYNTHESIS: residual is a MIX, no single cause — (1) old-bill/A/P timing [Chris
 (2) broken Amex phantom, (3) ACH clearing pre-cleanup, (4) AXP miscoding [H1-2026]. NOT missing money;
 proof = clean-books 2025 closes to 1%. "Can't find it as one pile" because it was never one pile — it's
 summed accounting-timing noise from paying down the vendor float using still-broken card/ACH books.
+
+## Chris's two-mechanism timing model — VALIDATED (2026-07-21)
+Chris corrected the lumped "rebates/discounts" analysis: (1) EARLY-PAY DISCOUNTS are earned at payment
+time → track same-quarter purchases; (2) REBATES (IR/co-op claims → vendor credits) are claimed AFTER
+the fact → lag, Q4 buying → Q1 claims. Both tested TRUE:
+- Early-pay: 2025 discounts ran a near-constant 1.60-1.72% of quarterly bill cash (Q1 56.9k/3.31M …
+  Q4 77.7k/4.87M) — biggest buy quarter = biggest discount quarter. Same shape 2024.
+- Rebates (50500): Q1 is the top posting quarter in 2023 ($353.8k) & 2025 ($359.7k), near-top 2024
+  ($412.2k), each following the year's biggest (Q4) buy. Noise: 2024-Q3 spike (promo-window claims).
+FORECAST refinements: Q4-2026 buying ~$5.5M × ~1.6% → ~$90k discounts in Q4 alone (best ever, lands in
+the fall); full-2026 discounts ~$320-340k. Predictable Q1-2027 rebate spike from Q4-2026 buys (~$60-150k
+above typical quarter — flatters next H1, as it always has). Magnitude at half-year NOI level still
+small vs the ~$500k H1/H2 gap (margin pattern remains the big lever), but the mechanism timing is now
+correctly documented per Chris.
