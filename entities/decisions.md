@@ -96,3 +96,10 @@ all users). Never log tokens. /auth/login-link + /auth/link are explicit open ro
 regression). WAITING ON CHRIS: create free resend.com account → API key → set RESEND_API_KEY in Railway
 → (optional, for non-owner recipients + nicer sender) verify pictureline.com domain in Resend (2 DNS
 records) and set AUTH_FROM_EMAIL.
+
+## D36a (2026-07-21) — Sign-in email via generic SMTP, Resend optional (Chris: "I don't want to use resend.com")
+Mailer refit to provider-agnostic SMTP (nodemailer; SMTP_HOST/PORT/USER/PASS env, port 465 = implicit TLS,
+else STARTTLS; SMTP takes precedence over RESEND_API_KEY which remains a supported path). Works with a
+Gmail app password (smtp.gmail.com:587), Microsoft 365 (smtp.office365.com:587 — needs SMTP AUTH enabled
+on the mailbox), or any provider. AUTH_FROM_EMAIL defaults to SMTP_USER. Feature stays politely off (503,
+"use your password below") until either config exists.
