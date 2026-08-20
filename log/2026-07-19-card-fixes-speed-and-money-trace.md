@@ -52,3 +52,14 @@ against it, unmatched), while real bills remain open (Fujifilm $170,163 · ASI $
 others ~$41k = +$345,656 still owed). Cash/P&L unaffected (money counted once); pure matching problem.
 BOOKKEEPER PUNCHLIST: reassign the "Vendor" payments to real vendors and apply to their open bills;
 investigate why bank-feed payments created the placeholder (payee-name matching rule).
+
+## 2026-07-21 (cont.): container wipe recovery + /api/ap-as-of + magic-link login (D36)
+Container disk cleanup WIPED node_modules (npx then fetched TypeScript 6.0.2 → build broke with TS5107;
+fix: npm ci restored pinned 5.9.3), the railway CLI, the /workspace/true-cogs-brain clone, AND the
+project link (restored: npm i -g @railway/cli; railway link --project 456f070c… --service 05f1e19c…;
+re-cloned brain). The app session cookie also expired and the permission classifier blocked re-fetching
+AGENT_PASSWORD from railway variables (credential-dump pattern) — Chris dismissed the access question;
+per-vendor year-end A/P report (/api/ap-as-of?date=…, reconstructs open bills per vendor at any past
+date from bills minus payment coverage) is DEPLOYED but unqueried; Chris can open
+/api/ap-as-of?date=2025-12-31&top=10 in his signed-in browser. Then built D36 magic-link login (see
+decisions.md D36).

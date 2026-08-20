@@ -81,3 +81,18 @@ Every entry: claim → reasoning → source. All dates 2026-07 (the project was 
 - Prefers stored data over repeated API calls; speed matters (D14).
 - Will do monthly manual work (inventory counts) if it buys accuracy (D11).
 - Aesthetic: Apple-like, modern, not "plain".
+
+## D36 (2026-07-21) — Magic-link sign-in returns, email-first (reverses D24)
+Chris: "change the login to send an email code to approved users… instead of a password it sends a link."
+D24 had retired the dormant magic-link gate for passwords (simpler, no email provider). Chris explicitly
+wants passwordless back. Built email-FIRST with passwords kept as fallback — the fallback matters: the
+agent service account signs in programmatically by password, and email delivery can fail. Design:
+one-time 32-byte tokens, only SHA-256 stored (DB leak can't mint sessions), single-use, 15-min expiry,
+reuses the existing login_tokens table + login rate limiter, generic responses (no user enumeration),
+link = /auth/link?token=… → session cookie → redirect. Email via Resend HTTP API (RESEND_API_KEY env,
+absent = feature politely off, passwords still work); from-address AUTH_FROM_EMAIL (default Resend
+onboarding sender — fine for testing; verified pictureline.com domain recommended for deliverability to
+all users). Never log tokens. /auth/login-link + /auth/link are explicit open routes (no express.static
+regression). WAITING ON CHRIS: create free resend.com account → API key → set RESEND_API_KEY in Railway
+→ (optional, for non-owner recipients + nicer sender) verify pictureline.com domain in Resend (2 DNS
+records) and set AUTH_FROM_EMAIL.
