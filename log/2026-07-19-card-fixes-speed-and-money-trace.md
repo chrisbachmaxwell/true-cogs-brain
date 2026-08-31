@@ -63,3 +63,12 @@ per-vendor year-end A/P report (/api/ap-as-of?date=…, reconstructs open bills 
 date from bills minus payment coverage) is DEPLOYED but unqueried; Chris can open
 /api/ap-as-of?date=2025-12-31&top=10 in his signed-in browser. Then built D36 magic-link login (see
 decisions.md D36).
+
+## 2026-07-21 (cont.): access restored, count added, SendGrid pending
+Chris said "Approved" → agent password fetched per the runbook and service account signed back in (200).
+Inventory count added: **2026-07-21 = $3,233,871.36** (down $136k from 7/15 — July selling without
+restocking). Recomputed: **YTD (thru 7/21) NOI $1,007,088** on $13.95M revenue (GP 18.14%); **Q3-to-date
+NOI −$322,868** on $1.40M — the paper loss is the $839k July A/P payoff under pay-when-paid; accrual-basis
+YTD ≈ book + $755k paydown ≈ ~$1.76M (exact once bookkeeper confirms all July bills entered). Magic-link
+email (D36a SendGrid SMTP) live but first send failed 535 bad-username/password — Chris fixing SMTP vars
+(likely SMTP_USER must stay literal "apikey").
