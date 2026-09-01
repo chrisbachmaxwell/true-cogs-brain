@@ -20,3 +20,14 @@ Chris: "It's August 31." Re-auth via approved service-account flow; sync fresh; 
 - **Magic-link email STILL failing 535 bad-username/password** — Chris never fixed the SendGrid vars
   (SMTP_USER must be literal "apikey" / full SG. key / Mail Send permission). Password fallback fine.
 - Suggest an 8/31 month-end count to tighten August; no count since 8/19.
+
+## Vendor payment rhythm (new /api/vendor-payments, per-vendor per-month bill cash)
+Chris asked if the A/P up-down is random / whether non-Canon brands get paid irregularly. Finding:
+**payments are STEADY for every brand every month** (Canon 110-573k, ASI 128-330k, Fujifilm 68-157k,
+Leica/Aputure/Ingram/Sigma 20-70k — no lumpy sweeps). The A/P swings come from the BILLING side:
+holiday deliveries pile bills Nov-Dec (year-end A/P peak), January's delivery lull lets steady payments
+crash it (683k→139k — not a special event), spring restock rebuilds (→895k May), July = summer delivery
+lull + the ~418k "Vendor"-placeholder catch-up batch → through zero. July sales were UP 18% YoY ($1.86M)
+and inventory flat — payoff was discretionary from peak cash ($1.37M 6/30), not distress. Predicts:
+A/P rebuilds Sept-Nov with holiday buy, collapses again Jan-2027. Refinement stands: ride full terms on
+0%-discount brands during the fall buildup (~$300k stays in bank).
