@@ -113,5 +113,5 @@ sender to true-cogs (client-credentials token, cached to ~5 min before expiry; P
 stripped). Precedence: Graph → SMTP → Resend. Copied the four values careers→inventory-tracker
 machine-to-machine (never displayed); AUTH_FROM_EMAIL set to careers' MAIL_FROM (matters if an Azure
 ApplicationAccessPolicy restricts which mailboxes the app may send as); cleared the dead SendGrid SMTP
-placeholders (SMTP vars blanked). The SendGrid 535 saga (Jul-Aug) is retired without ever working —
+placeholders (SMTP vars blanked). VERIFIED LIVE 2026-09-10: /auth/login-link returned 200 for chrism@pictureline.com (Graph send succeeded; failures return 502). The SendGrid 535 saga (Jul-Aug) is retired without ever working —
 Chris never fixed the key, and Graph is better anyway (company mailbox, no SMTP AUTH).
