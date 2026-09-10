@@ -103,3 +103,15 @@ else STARTTLS; SMTP takes precedence over RESEND_API_KEY which remains a support
 Gmail app password (smtp.gmail.com:587), Microsoft 365 (smtp.office365.com:587 — needs SMTP AUTH enabled
 on the mailbox), or any provider. AUTH_FROM_EMAIL defaults to SMTP_USER. Feature stays politely off (503,
 "use your password below") until either config exists.
+
+## D36b (2026-09-10) — Sign-in email via Microsoft Graph (replaces the never-configured SendGrid attempt)
+Chris: "can we just use Microsoft to send the login email… in our railway careers project and scheduling
+project we are using that." Inspected pictureline-careers service vars (names only): it mails via a
+Microsoft Graph app registration (GRAPH_TENANT_ID/CLIENT_ID/CLIENT_SECRET + MAIL_FROM). Added a Graph
+sender to true-cogs (client-credentials token, cached to ~5 min before expiry; POST
+/v1.0/users/{from}/sendMail, saveToSentItems:false; from = AUTH_FROM_EMAIL with display-name wrapper
+stripped). Precedence: Graph → SMTP → Resend. Copied the four values careers→inventory-tracker
+machine-to-machine (never displayed); AUTH_FROM_EMAIL set to careers' MAIL_FROM (matters if an Azure
+ApplicationAccessPolicy restricts which mailboxes the app may send as); cleared the dead SendGrid SMTP
+placeholders (SMTP vars blanked). The SendGrid 535 saga (Jul-Aug) is retired without ever working —
+Chris never fixed the key, and Graph is better anyway (company mailbox, no SMTP AUTH).
