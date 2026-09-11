@@ -30,7 +30,7 @@ Plus one bank-side miscode: **54593** (03-03, $67,918.03) Zions payment coded st
 
 - `planReclassify` gained `allowCredit` + per-task `fundedFrom` (card-side autopay records are credit-card credits funded from the card; every other validation unchanged). Tests 50/50.
 - New cleanup tasks (in the /cleanup dropdown, dry-run first): `jens-personal-taxes-2026`, `card-autopay-credits-2026-purple`, `card-autopay-credits-2026-amex`; 54593 appended to `card-payments-2025-26-purple`.
-- **No QuickBooks write yet — awaiting Chris's go-ahead.** Accountant may prefer `Dist - Jens Nielsen` (30701) over 21005 for the two personal payments; rows carry per-row `to` override if so.
+- **EXECUTED 2026-09-11 with Chris's approval** (dry-run then run; all 7 reclassified, before-images in reclassify_log for revert). Money-map verified after: Federal W/H paydown $142,629 → $17,629 (only real 941 deposits remain), 1040-ES owners row $81,700 → $206,700, AX Purple growth +$136,447 → +$13,053, the wash 'Card payment clearing' row vanished (nets $0), financing total $225,472 → $100,472, owners $171,700 → $296,700. NOI/accounted/residual unchanged, as predicted. Accountant can still journal the $125k from 21005 to `Dist - Jens Nielsen` (30701) if preferred.
 
 ## Still open on the residual
 
